@@ -1,2 +1,12 @@
 # bbmt
 Text-based adventure game for CCPS406
+
+#User Actions
+NEWS
+TALK/INTERACT (NPC)
+PICKUP (ITEM)
+COMBINE (ITEM)
+USE (ITEM)
+OPEN/UNLOCK (DOOR/PASSAGE)
+INSPECT (ROOM, ITEM)
+
