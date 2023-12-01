@@ -1,0 +1,43 @@
+{
+    "rooms": [
+        {
+            "id": 1,
+            "name": "Room Name",
+            "description": "Room Description",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": false,
+            "starting_room_intro": "",
+            "item_ids": [
+                1,
+                2,
+                3
+            ],
+            "npc_ids": [
+                1,
+                2,
+                3
+            ],
+            "connected_rooms": [
+                {
+                    "room_id": 1,
+                    "room_direction": "N",
+                    "is_room_locked": false,
+                    "key_item_id": 1
+                },
+                {
+                    "room_id": 2,
+                    "room_direction": "W",
+                    "is_room_locked": true,
+                    "key_item_id": 1
+                },
+                {
+                    "room_id": 3,
+                    "room_direction": "E",
+                    "is_room_locked": true,
+                    "key_item_id": 2
+                }
+            ]
+        }
+    ]
+}

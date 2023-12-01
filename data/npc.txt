@@ -1,0 +1,28 @@
+{
+    "npcs": [
+        {
+            "id": 0,
+            "name": "NPC Name",
+            "description": "NPC description",
+            "dialogue": [
+                "NPC dialogue 1",
+                "NPC dialogue 2",
+                "NPC dialogue 3"
+            ],
+            "item_interactions": [
+                {
+                    "item_id": 1,
+                    "player_action": "give",
+                    "dialogue": "Item related NPC dialogue",
+                    "reaction": "remove"
+                },
+                {
+                    "item_id": 1,
+                    "player_action": "attack",
+                    "dialogue": "Item related NPC dialogue",
+                    "reaction": "attack"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "name": "Item Name",
+            "description": "Item description",
+            "is_combined_item": false,
+            "combination": [],
+            "combine_success_description": ""
+        },
+        {
+            "id": 5,
+            "name": "Item Name",
+            "description": "Item description",
+            "is_combined_item": true,
+            "combination": [
+                1,
+                2
+            ],
+            "combine_success_description": "Combine Dialogue"
+        }
+    ]
+}
