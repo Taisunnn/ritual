@@ -1,0 +1,28 @@
+{
+    "messages": [
+        {
+            "id": 0,
+            "is_error": false,
+            "error_type": "",
+            "content": "message content"
+        },
+        {
+            "id": 1,
+            "is_error": true,
+            "error_type": "OUT OF BOUND",
+            "content": "You cannot go in that direction"
+        },
+        {
+            "id": 2,
+            "is_error": true,
+            "error_type": "OUT OF BOUND",
+            "content": "Room does not exist"
+        },
+        {
+            "id": 3,
+            "is_error": true,
+            "error_type": "INTERACTIVE ERROR",
+            "content": "Cannot combine {item1} and {item2}"
+        }
+    ]
+}
