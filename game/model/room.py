@@ -1,8 +1,10 @@
-class Room():
+from .game_object import GameObject
+
+
+class Room(GameObject):
     def __init__(self, id, name, description, is_starting_room, starting_room_intro, is_ending_room, ending_room_outro, item_ids, npc_ids, connected_rooms):
+        super().__init__('room', name, description)
         self.id = id
-        self.name = name
-        self.description = description
         self.is_starting_room = is_starting_room
         self.starting_room_intro = starting_room_intro
         self.is_ending_room = is_ending_room
@@ -10,6 +12,9 @@ class Room():
         self.item_ids = item_ids
         self.npc_ids = npc_ids
         self.connected_rooms = connected_rooms
+
+    def is_in_room(self, id):
+        return self.id == id
 
     def to_json(self):
         return {
@@ -24,22 +29,7 @@ class Room():
             "npc_ids": self.npc_ids,
             "connected_rooms": self.connected_rooms
         }
-
-    @classmethod
-    def from_json(cls, json_data):
-        return cls(
-            id=json_data["id"],
-            name=json_data["name"],
-            description=json_data["description"],
-            is_starting_room=json_data["is_starting_room"],
-            starting_room_intro=json_data["starting_room_intro"],
-            is_ending_room=json_data["is_ending_room"],
-            ending_room_outro=json_data["ending_room_outro"],
-            item_ids=json_data["item_ids"],
-            npc_ids=json_data["npc_ids"],
-            connected_rooms=json_data["connected_rooms"]
-        )
-    
+        
     @classmethod
     def from_dict(cls, data):
         return cls(

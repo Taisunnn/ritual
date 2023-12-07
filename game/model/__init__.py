@@ -1,4 +1,6 @@
 # Import modules
+from . import game_object
+from . import door
 from . import item
 from . import npc
 from . import room

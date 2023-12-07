@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Room 1",
-            "description": "As you step into the first room, you find yourself in what appears to be an abandoned study. Dusty old books line the shelves along the walls, and the air is filled with the faint scent of aging paper. Dim light filters in through tattered curtains, revealing a large wooden desk cluttered with yellowed manuscripts and a cracked leather chair. A fireplace in the corner has long since gone cold, and a framed portrait of a stern-looking man hangs crookedly on the wall. The only way forward is through a wooden door leading to the north.",
+            "description": "You find yourself in a dimly lit parlor, nestled within the eerie confines of the creepy mansion. The air feels heavy and cold, and the room exudes an unsettling stillness. The faded, ornate wallpaper peels away from the walls, revealing the passage of time in this forgotten space. Tattered, cobweb-draped curtains hang limply over tall, cracked windows, allowing only feeble moonlight to pierce the darkness.\n\nIn the center of the room, a weathered velvet couch sits, its once-rich color now a somber shade of gray. A dusty, grand piano occupies one corner, its keys untouched for decades, yet an eerie melody seems to linger in the air. A long-abandoned tea set rests on a tarnished silver tray atop an antique coffee table, a haunting reminder of past gatherings.\n\nYour attention is drawn to a heavy wooden door, ornately carved with intricate patterns, leading to a first-floor hallway to the north. The door's surface is marred with age, and it creaks ominously as if reluctant to reveal the secrets of the mansion beyond. The flickering candlelight casts elongated shadows that dance upon the floor, making you hesitate before taking the next step into the foreboding hallway.",
             "is_starting_room": true,
             "starting_room_intro": "Starting Quote",
             "is_ending_room": false,
@@ -14,7 +14,7 @@
                 {
                     "room_id": 2,
                     "room_direction": "n",
-                    "is_room_locked": false,
+                    "is_room_locked": true,
                     "key_item_id": 0
                 }
             ]
@@ -22,7 +22,7 @@
         {
             "id": 2,
             "name": "Room 2",
-            "description": "Upon entering the second room, you find yourself in a vast, mysterious library. Towering bookshelves reach up to the ceiling, their contents hidden in the shadows. Cobwebs hang in the corners, and the only source of illumination is a single flickering candle on a dusty table. You notice that some of the books are much larger than the rest, their titles written in an ancient, unreadable script. A rickety wooden ladder leans against one of the bookshelves, and the only exit is a wooden door leading to the north.",
+            "description": "You step through the heavy wooden door, entering the first-floor hallway of the eerie mansion. The air here is just as cold and the atmosphere equally unsettling as the parlor you've left behind. Flickering sconces along the walls cast erratic shadows that seem to sway to their own ghostly rhythm.\n\nTo the north, a grand wooden staircase beckons, its steps worn with age and a faint, ghostly whisper echoing from above. It leads to the upper floor, shrouded in even deeper darkness and mystery.\n\nTurning your gaze to the east, an innocent-looking bookshelf stands against the wall, its wooden frame adorned with dusty old tomes. Yet, something about it seems subtly out of place, its presence intriguingly mysterious. A chill runs down your spine as you wonder what secrets might be concealed behind those shelves, waiting for the curious to discover.\n\nAnd to the west, another hallway veers off, its passage obscured by the gloom, impossible to see where it leads, but the faintest whisper of a draft tickles your senses, carrying with it a scent of dampness and decay.",
             "is_starting_room": false,
             "starting_room_intro": "",
             "is_ending_room": false,
