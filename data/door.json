@@ -1,0 +1,24 @@
+{
+    "doors": [
+        {
+            "room1_id": 1,
+            "room1_location": "n",
+            "room2_id": 2,
+            "room2_locaiton": "s",
+            "name": "Red Door",
+            "description": "Door 1 Description",
+            "is_locked": false,
+            "key_item_id": 0
+        },   
+        {
+            "room1_id": 2,
+            "room1_location": "n",
+            "room2_id": 3,
+            "room2_locaiton": "s",
+            "name": "Blue Door",
+            "description": "Door 2 Description",
+            "is_locked": true,
+            "key_item_id": 5
+        }
+    ]
+}
