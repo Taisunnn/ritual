@@ -1,6 +1,8 @@
 import json
 import os
 
+from game.controller import game_state_controller
+
 from ..model.door import Door
 from ..model.item import Item
 from ..model.npc import NPC
@@ -40,6 +42,10 @@ class GameObjectController:
             cls._instance.current_objects = []
         return cls._instance
     
+    @staticmethod
+    def _current_room():
+        return game_state_controller.GameStateController().current_location
+
     def load_room_id(self, id):
         self.current_objects = [game_object for game_object in self.game_objects if game_object.is_in_room(id)]
         self.current_objects.reverse()
@@ -60,35 +66,14 @@ class GameObjectController:
         if object is not None:
             object.inspect(room_id) 
 
-    # def get_object_category(self, category_name, room_)
+    def get_item_description(self, name):
+        object = next((game_object for game_object in self.current_objects if game_object.object_type == 'item' and game_object.name.lower() == name), None)
+        if object is not None:
+            object.inspect(self._current_room) 
 
-
-
-
-
-
-
-
-
-
-
+    def get_object_category(self, category_name):
+        temp_object_list = [game_object for game_object in self.game_objects if game_object.is_in_room(self._current_room()) and game_object.object_type == category_name]
+        return temp_object_list 
 
     def remove_object(self, item_id):
         self.items = [item for item in self.items if item.id != item_id]
-
-    def get_item_by_id(self, item_id):
-        return next((item for item in self.items if item.id == item_id), None)
-
-    def get_all_items(self):
-        return self.items
-
-    def to_json(self):
-        return [item.to_json() for item in self.items]
-
-    @classmethod
-    def from_json(cls, json_data):
-        controller = cls()
-        for item_data in json_data:
-            item = item.from_json(item_data)
-            controller.add_item(item)
-        return controller

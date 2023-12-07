@@ -17,13 +17,14 @@ class GameStateController:
             ItemController()
             GameObjectController()
             cls._instance.game_ongoing = True
-            cls._instance.current_locaiton = 1
+            cls._instance.current_location = 1
             cls._instance.inventory = []
         return cls._instance
     
     def start(self):
         # RoomController().to_start()
-        GameObjectController().load_room_id(self.current_locaiton)
+        GameObjectController().load_room_id(self.current_location)
+
 
         while(self.game_ongoing):
             user_command = input('\tWhat do you do? : ')
@@ -48,11 +49,30 @@ class GameStateController:
 
 
     def move(self, command):
-        print('UNIMPLEMENTED FUNCTIONALITY: ' + 'move' + " " + command + '\n\n')
+        doors = GameObjectController().get_object_category('door')
+        moved = False
+        for door in doors:
+            if door.room1_id == self.current_location and door.room1_location == command:
+                self.current_location = door.room2_id
+                GameObjectController().load_room_id(self.current_location)
+                moved = True
+                break
+            elif door.room2_id == self.current_location and door.room2_location == command:
+                self.current_location = door.room1_id
+                GameObjectController().load_room_id(self.current_location)
+                moved = True
+                break
+        if not moved:
+            print('"There is no pathway in that direction..."\n\n')
 
     def action(self, action, target):
         if action in INVENTORY_KEYWORD:
-            print('UNIMPLEMENTED FUNCTIONALITY: ' + action + '\n\n')
+            print('You look at what you currently have\n')
+            if len(self.inventory) == 0:
+                print("You currently don't have anything\n")
+            else:
+                for item in self.inventory:
+                    GameObjectController().get_item_description(item.name)
         else:
             # Determine which object the action is being used
             target_object = self._determine_target(target)            
@@ -61,9 +81,7 @@ class GameStateController:
                 return
 
             # Determine which action is used on the object
-            if action in MOVE_ACTION_KEYWORD:
-                self.move(target)
-            elif action in TALK_KEYWORD:
+            if action in TALK_KEYWORD:
                 print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + target + '\n\n')
             elif action in PICK_UP_KEYWORD:
                 if target_object.object_type == 'item':
@@ -77,7 +95,7 @@ class GameStateController:
             elif action in UNLOCK_KEYWORD:
                 print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + target + '\n\n')
             elif action in LOOK_KEYWORD:
-                GameObjectController().get_object_description(target, self.current_locaiton)
+                GameObjectController().get_object_description(target, self.current_location)
 
 
     def _determine_target(self, target):
