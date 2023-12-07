@@ -45,18 +45,33 @@ class GameObjectController:
         self.current_objects.reverse()
         self.get_descriptions(id)
 
-    # def get_descriptions(self):
-    #     for game_object in self.current_objects:
-    #         game_object.inspect()
-
     def get_descriptions(self, room_id):
         temp_object_list = [game_object for game_object in self.game_objects if game_object.is_in_room(room_id)]
         temp_object_list.reverse()
         for game_object in temp_object_list:
             game_object.inspect(room_id)
 
-    # def add_item(self, item):
-    #     self.items.append(item)
+    def get_object(self, name):
+        object = next((game_object for game_object in self.current_objects if game_object.name.lower() == name), None)
+        return object
+
+    def get_object_description(self, name, room_id):
+        object = next((game_object for game_object in self.current_objects if game_object.name.lower() == name), None)
+        if object is not None:
+            object.inspect(room_id) 
+
+    # def get_object_category(self, category_name, room_)
+
+
+
+
+
+
+
+
+
+
+
 
     def remove_object(self, item_id):
         self.items = [item for item in self.items if item.id != item_id]
