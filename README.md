@@ -1,7 +1,13 @@
 # bbmt
 Text-based adventure game for CCPS406
 
-#User Actions
+## How to Start the Game
+After navigating to the project directory `.../BBMT/` run the following command
+```python main.py```
+
+
+# Dev Note
+## TODO: Possible User Actions
 NEWS
 TALK/INTERACT (NPC)
 PICKUP (ITEM)

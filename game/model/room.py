@@ -39,3 +39,21 @@ class Room():
             npc_ids=json_data["npc_ids"],
             connected_rooms=json_data["connected_rooms"]
         )
+    
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            id=data.get("id", 0),
+            name=data.get("name", ""),
+            description=data.get("description", ""),
+            is_starting_room=data.get("is_starting_room", False),
+            starting_room_intro=data.get("starting_room_intro", ""),
+            is_ending_room=data.get("is_ending_room", False),
+            ending_room_outro=data.get("ending_room_outro", ""),
+            item_ids=data.get("item_ids", []),
+            npc_ids=data.get("npc_ids", []),
+            connected_rooms=data.get("connected_rooms", [])
+        )
+
+    def __str__(self):
+        return f"Room ID: {self.id}, Name: {self.name}, Description: {self.description}"

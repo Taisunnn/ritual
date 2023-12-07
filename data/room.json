@@ -2,40 +2,64 @@
     "rooms": [
         {
             "id": 1,
-            "name": "Room Name",
-            "description": "Room Description",
+            "name": "Room 1",
+            "description": "As you step into the first room, you find yourself in what appears to be an abandoned study. Dusty old books line the shelves along the walls, and the air is filled with the faint scent of aging paper. Dim light filters in through tattered curtains, revealing a large wooden desk cluttered with yellowed manuscripts and a cracked leather chair. A fireplace in the corner has long since gone cold, and a framed portrait of a stern-looking man hangs crookedly on the wall. The only way forward is through a wooden door leading to the north.",
+            "is_starting_room": true,
+            "starting_room_intro": "Starting Quote",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "item_ids": [],
+            "npc_ids": [],
+            "connected_rooms": [
+                {
+                    "room_id": 2,
+                    "room_direction": "n",
+                    "is_room_locked": false,
+                    "key_item_id": 0
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Room 2",
+            "description": "Upon entering the second room, you find yourself in a vast, mysterious library. Towering bookshelves reach up to the ceiling, their contents hidden in the shadows. Cobwebs hang in the corners, and the only source of illumination is a single flickering candle on a dusty table. You notice that some of the books are much larger than the rest, their titles written in an ancient, unreadable script. A rickety wooden ladder leans against one of the bookshelves, and the only exit is a wooden door leading to the north.",
             "is_starting_room": false,
             "starting_room_intro": "",
             "is_ending_room": false,
             "ending_room_outro": "",
-            "item_ids": [
-                1,
-                2,
-                3
-            ],
-            "npc_ids": [
-                1,
-                2,
-                3
-            ],
+            "item_ids": [],
+            "npc_ids": [],
             "connected_rooms": [
                 {
                     "room_id": 1,
-                    "room_direction": "N",
+                    "room_direction": "s",
                     "is_room_locked": false,
-                    "key_item_id": 1
-                },
-                {
-                    "room_id": 2,
-                    "room_direction": "W",
-                    "is_room_locked": true,
-                    "key_item_id": 1
+                    "key_item_id": 0
                 },
                 {
                     "room_id": 3,
-                    "room_direction": "E",
-                    "is_room_locked": true,
-                    "key_item_id": 2
+                    "room_direction": "n",
+                    "is_room_locked": false,
+                    "key_item_id": 0
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Room 3",
+            "description": "The third room opens up into an enigmatic gallery filled with peculiar artwork. Paintings of surreal landscapes and bizarre creatures cover the walls, each one more mystifying than the last. The air is filled with an eerie silence, broken only by the faint sound of your footsteps on the creaky wooden floor. In the center of the room stands a pedestal holding a peculiar statue of a figure with an inscrutable expression. Moonlight filters in through a cracked skylight, casting eerie shadows on the artwork. The only visible exit is a wooden door leading to the north, beckoning you to continue your investigation.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": true,
+            "ending_room_outro": "Ending Quote",
+            "item_ids": [],
+            "npc_ids": [],
+            "connected_rooms": [
+                {
+                    "room_id": 2,
+                    "room_direction": "s",
+                    "is_room_locked": false,
+                    "key_item_id": 0
                 }
             ]
         }
