@@ -11,7 +11,7 @@
         {
             "id": 2,
             "name": "Doll Head",
-            "description": "Head of a doll. It's missing its body.",
+            "description": "Head of a doll. It's missing its body",
             "long_description": "Lifeless eyes peer through faded curls, a relic of forgotten playtimes, evoking a haunting sense of nostalgia in the eerie atmosphere of the decaying room",
             "item_location": 9,
             "location_description": "You see a Doll Head on a book shelf"
@@ -20,7 +20,7 @@
         {
             "id": 3,
             "name": "Doll Body",
-            "description": "Body of a doll. It's missing its head.",
+            "description": "Body of a doll. It's missing its head",
             "long_description": "Plastic limbs and faded fabric dress telling tales of forgotten tea parties and childhood innocence. Amidst the dust, it silently echoes the passage of time and memories left behind",
             "item_location": 9,
             "location_description": "You see a Doll Body on a table"
@@ -28,7 +28,7 @@
         {
             "id": 4,
             "name": "Doll",
-            "description": "An old Doll. Not sure where to use this...",
+            "description": "An old Doll. Not sure where to use this",
             "long_description": " Its glassy eyes hold a hint of melancholy, a silent witness to the bygone days when laughter filled the grand rooms of the mansion",
             "is_combined_item": true,
             "combination": [
@@ -84,7 +84,7 @@
         {
             "id": 10,
             "name": "Pendant",
-            "description": "A shiny green Pendant, looks like it belongs to someone.",
+            "description": "A shiny green Pendant, looks like it belongs to someone",
             "long_description": "Suspended from a delicate chain, catches the light in the mansion. The emerald hue, faded yet elegant, dangles with a hint of mystery, echoing the era's fashion",
             "item_location": 8,
             "location_description": "You spot a Pendant in between the wood planks on the floor."

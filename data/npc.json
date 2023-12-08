@@ -28,7 +28,7 @@
             "dialogue": [
                 "We must complete the Ritual\nSilent gaze, porcelain attire, Who am I, a relic of desire?\nRusted companion, '80s blade, In shadows waiting, what am I made?\nWorn by time, a fabric's grace, What am I, in an abandoned space?\nI sway in wax with shadows to share, What am I, casting warmth in the air?"
             ],
-            "ending_items": [1, 5],
+            "ending_items": [4, 6, 9, 11],
             "ending_quote": "You have released the demon... Your soul has been devoured"
         }
     ]
