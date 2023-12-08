@@ -66,6 +66,10 @@ class GameObjectController:
                 target_objects.append(object)
         return target_objects
 
+    def get_item_id(self, id):
+        object = next((game_object for game_object in self.game_objects if game_object.object_type == 'item' and game_object.id == id), None)
+        return object
+
     def get_object(self, name):
         object = next((game_object for game_object in self.current_objects if game_object.name.lower() == name), None)
         return object
@@ -111,3 +115,13 @@ class GameObjectController:
             return True
         return False
         
+    def give_npc(self, npc, item):
+        if npc.item_interactions[0]["interact_item_id"] == item.id:
+            npc_item = self.get_item_id(npc.item_interactions[0]["give_item_id"])
+            print(npc.name + ': "' + npc.item_interactions[0]["dialogue"] + '"\n\n')
+            print(npc.name + ' gives you ' + npc_item.name + '\n\n')
+            self.remove_object(npc)
+            self.remove_object(item)
+            return npc_item
+        print('They don\'t seem to respond to it...' + '\n\n')
+        return None

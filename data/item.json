@@ -32,6 +32,12 @@
                 3
             ],
             "combine_success_description": "You put together the Doll Head and Doll Body, completeing the full Doll."
+        },
+        {
+            "id": 5,
+            "name": "Candle",
+            "description": "A Candle. I wonder if I can light this?",
+            "long_description": "ENTER LONG DESCRIPTION"
         }
     ]
 }

@@ -1,9 +1,16 @@
 # keywords for navigating
 MOVE_KEYWORD = ['n', 'e', 's', 'w']
 
-NPC_KEYWORD = [
+NPC_TALK_KEYWORD = [
+    'talk with',
     'talk',
+    'chat with',
+    'chat',
+]
+
+NPC_GIVE_KEYWORD = [
     'give',
+    'hand over'
 ]
 
 COMBINE_KEYWORD = [
@@ -12,9 +19,9 @@ COMBINE_KEYWORD = [
 ]
 
 INTERACT_KEYWORD = [
-    'pull',
-    'give',
-    'interact',
+    # 'pull',
+    # 'give',
+    # 'interact',
 ]
 
 UNLOCK_KEYWORD = [
@@ -48,5 +55,5 @@ SPECIAL_KEYWORD = [
 ]
 
 # keywords for action
-ACTION_KEYWORD = [] + NPC_KEYWORD + COMBINE_KEYWORD + INTERACT_KEYWORD + UNLOCK_KEYWORD + LOOK_KEYWORD + PICK_UP_KEYWORD + INVENTORY_KEYWORD + SPECIAL_KEYWORD
+ACTION_KEYWORD = [] + NPC_TALK_KEYWORD + NPC_GIVE_KEYWORD + COMBINE_KEYWORD + INTERACT_KEYWORD + UNLOCK_KEYWORD + LOOK_KEYWORD + PICK_UP_KEYWORD + INVENTORY_KEYWORD + SPECIAL_KEYWORD
 
