@@ -2,33 +2,22 @@
     "rooms": [
         {
             "id": 1,
-            "name": "Room 1",
-            "description": "You find yourself in a dimly lit parlor, nestled within the eerie confines of the creepy mansion. The air feels heavy and cold, and the room exudes an unsettling stillness. The faded, ornate wallpaper peels away from the walls, revealing the passage of time in this forgotten space. Tattered, cobweb-draped curtains hang limply over tall, cracked windows, allowing only feeble moonlight to pierce the darkness.\n\nIn the center of the room, a weathered velvet couch sits, its once-rich color now a somber shade of gray. A dusty, grand piano occupies one corner, its keys untouched for decades, yet an eerie melody seems to linger in the air. A long-abandoned tea set rests on a tarnished silver tray atop an antique coffee table, a haunting reminder of past gatherings.\n\nYour attention is drawn to a heavy wooden door, ornately carved with intricate patterns, leading to a first-floor hallway to the north. The door's surface is marred with age, and it creaks ominously as if reluctant to reveal the secrets of the mansion beyond. The flickering candlelight casts elongated shadows that dance upon the floor, making you hesitate before taking the next step into the foreboding hallway.",
-            "is_starting_room": true,
-            "starting_room_intro": "Starting Quote",
-            "is_ending_room": false,
-            "ending_room_outro": "",
-            "npc_ids": []
+            "name": "Lobby",
+            "description": "The mansion's lobby exuded an eerie ambiance. Antique furniture stood draped in dusty shrouds, their forms distorted by the dim light. Faded wallpaper bore silent witness to bygone grandeur. Candles flickered with trepidation, casting macabre shadows, and a sense of foreboding hung heavy in the air.",
+            "long_description": "The mansion's lobby, a cavernous chamber, oozed with an unsettling aura. Antique furniture, swathed in tattered drapes, stood frozen in time, their ornate carvings and faded upholstery whispering tales of opulence long past. The wallpaper, once regal, now hung in tatters, bearing the weight of forgotten memories. Candles, their flames flickering with trepidation, lined the mantle, casting grotesque shadows that danced on the frayed edges of a worn carpet. The air was thick with an uncanny stillness, laden with secrets waiting to be unearthed. It was a chilling prologue to the haunted mysteries that lay hidden within the mansion's depths."
         },
         {
             "id": 2,
-            "name": "Room 2",
-            "description": "You step through the heavy wooden door, entering the first-floor hallway of the eerie mansion. The air here is just as cold and the atmosphere equally unsettling as the parlor you've left behind. Flickering sconces along the walls cast erratic shadows that seem to sway to their own ghostly rhythm.\n\nTo the north, a grand wooden staircase beckons, its steps worn with age and a faint, ghostly whisper echoing from above. It leads to the upper floor, shrouded in even deeper darkness and mystery.\n\nTurning your gaze to the east, an innocent-looking bookshelf stands against the wall, its wooden frame adorned with dusty old tomes. Yet, something about it seems subtly out of place, its presence intriguingly mysterious. A chill runs down your spine as you wonder what secrets might be concealed behind those shelves, waiting for the curious to discover.\n\nAnd to the west, another hallway veers off, its passage obscured by the gloom, impossible to see where it leads, but the faintest whisper of a draft tickles your senses, carrying with it a scent of dampness and decay.",
-            "is_starting_room": false,
-            "starting_room_intro": "",
-            "is_ending_room": false,
-            "ending_room_outro": "",
-            "npc_ids": []
+            "name": "Hallway",
+            "description": "The dimly lit mansion hallway exuded an unsettling aura. Faded, peeling wallpaper revealed eerie, distorted faces. Antique portraits lined the walls, their eyes tracking your every move. Dusty chandeliers cast flickering shadows, and the air was heavy with an oppressive silence, broken only by the occasional, distant whisper.",
+            "long_description": "The mansion's hallway, a twisted corridor, was bathed in an eerie darkness. Its walls bore cracked, peeling wallpaper, where grotesque, distorted faces seemed trapped in silent agony. Antique portraits hung ominously, their forgotten subjects' eyes tracking every movement. Dusty chandeliers swayed, casting unsettling, wavering shadows across the worn carpet. The air hung heavy with secrets, and an unsettling silence prevailed, punctuated only by distant, ghostly whispers—a chilling symphony that resonated throughout the forsaken passage."
         },
         {
             "id": 3,
-            "name": "Room 3",
-            "description": "The third room opens up into an enigmatic gallery filled with peculiar artwork. Paintings of surreal landscapes and bizarre creatures cover the walls, each one more mystifying than the last. The air is filled with an eerie silence, broken only by the faint sound of your footsteps on the creaky wooden floor. In the center of the room stands a pedestal holding a peculiar statue of a figure with an inscrutable expression. Moonlight filters in through a cracked skylight, casting eerie shadows on the artwork. The only visible exit is a wooden door leading to the north, beckoning you to continue your investigation.",
-            "is_starting_room": false,
-            "starting_room_intro": "",
-            "is_ending_room": true,
-            "ending_room_outro": "Ending Quote",
-            "npc_ids": []
+            "name": "Bedroom",
+            "description": "The bedroom exuded an eerie vibe. Tattered curtains barely held back the moonlight, casting eerie shadows on decrepit furniture. A cracked mirror reflected a distorted, unsettling image. Dust-covered toys hinted at forgotten innocence, while an oppressive stillness hung heavy in the room.",
+            "long_description": "The bedroom, a forsaken sanctum, radiated an unsettling atmosphere. Tattered curtains struggled to contain the pale moonlight, casting elongated, ghostly shadows on the decaying remnants of furniture. A cracked mirror on the wall reflected a distorted, unsettling image of the room's eerie past. Dust-covered toys lay strewn about, their silent presence hinting at forgotten innocence now lost to time. The air was thick with an oppressive stillness, as if the room itself held its breath, guarding the darkest secrets of the mansion. It was a chamber of haunted memories and unsettling mysteries, where the past clung to the present like a malevolent specter.",
+            "is_ending_room": true
         }
     ]
 }

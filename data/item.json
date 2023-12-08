@@ -4,6 +4,7 @@
             "id": 1,
             "name": "Old Key",
             "description": "You found this key on the table in the parlor. You are not sure where it is used for",
+            "long_description": "ENTER LONG DESCRIPTION",
             "item_location": 1,
             "location_description": "You see an Old Key on a table"
         },
@@ -11,6 +12,7 @@
             "id": 2,
             "name": "Doll Head",
             "description": "Head of a doll. It's missing its body.",
+            "long_description": "ENTER LONG DESCRIPTION",
             "item_location": 2,
             "location_description": "You see a Doll Head on a book shelf"
 
@@ -19,6 +21,7 @@
             "id": 3,
             "name": "Doll Body",
             "description": "Body of a doll. It's missing its head.",
+            "long_description": "ENTER LONG DESCRIPTION",
             "item_location": 2,
             "location_description": "You see a Doll Body on a table"
         },
@@ -26,6 +29,7 @@
             "id": 4,
             "name": "Doll",
             "description": "A old Doll. Not sure where to use this...",
+            "long_description": "ENTER LONG DESCRIPTION",
             "is_combined_item": true,
             "combination": [
                 2,

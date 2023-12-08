@@ -1,8 +1,9 @@
-from .game_object import GameObject
+from .game_object import *
+from game.controller.game_output_controller import *
 
 class Door(GameObject):
-    def __init__(self, room1_id, room1_location, room2_id, room2_location, name, description, is_locked, key_item_id):
-        super().__init__('door', name, description)
+    def __init__(self, room1_id, room1_location, room2_id, room2_location, name, description, long_description, is_locked, key_item_id):
+        super().__init__('door', name, description, long_description)
         self.room1_id = room1_id
         self.room1_location = room1_location
         self.room2_id = room2_id
@@ -11,13 +12,9 @@ class Door(GameObject):
         self.key_item_id = key_item_id
 
     def is_in_room(self, id):
-        # return self.room1_id == id or self.room2_id == id
-        if self.room1_id == id or self.room2_id == id:
-            return True
-        return False
+        return self.room1_id == id or self.room2_id == id
 
     def inspect(self, room_id):
-
         door_location = ''
         if room_id == self.room1_id:
             door_location = self.room1_location
@@ -35,19 +32,8 @@ class Door(GameObject):
         elif door_location == 'w':
             door_description += 'To your west'
 
-        door_description += ', you see a ' + self.name + '. ' + self.description + '\n\n'
-        print(door_description)
-
-    def to_json(self):
-        return {
-            "room1_id": self.room1_id,
-            "room1_location": self.room1_location,
-            "room2_id": self.room2_id,
-            "room2_location": self.room2_location,
-            "description": self.description,
-            "is_locked": self.is_locked,
-            "key_item_id": self.key_item_id
-        }
+        door_description += ', you see a ' + self.name + '. ' + self.description
+        GameOutputController.terminal_print(door_description)
         
     @classmethod
     def from_dict(cls, data):
@@ -58,9 +44,7 @@ class Door(GameObject):
             room2_location = data.get("room2_location", ""),
             name = data.get("name", ""),
             description = data.get("description", ""),
+            long_description = data.get("long_description", ""),
             is_locked = data.get("is_locked", False),
             key_item_id = data.get("key_item_id", 0),
         )
-
-    def __str__(self):
-        return f"Room ID: {self.id}, Name: {self.name}, Description: {self.description}"

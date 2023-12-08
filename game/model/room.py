@@ -1,9 +1,9 @@
-from .game_object import GameObject
+from .game_object import *
 
 
 class Room(GameObject):
-    def __init__(self, id, name, description, is_starting_room, starting_room_intro, is_ending_room, ending_room_outro, npc_ids, connected_rooms):
-        super().__init__('room', name, description)
+    def __init__(self, id, name, description, long_description, is_starting_room, starting_room_intro, is_ending_room, ending_room_outro, npc_ids, connected_rooms):
+        super().__init__('room', name, description, long_description)
         self.id = id
         self.is_starting_room = is_starting_room
         self.starting_room_intro = starting_room_intro
@@ -31,15 +31,16 @@ class Room(GameObject):
     @classmethod
     def from_dict(cls, data):
         return cls(
-            id=data.get("id", 0),
-            name=data.get("name", ""),
-            description=data.get("description", ""),
-            is_starting_room=data.get("is_starting_room", False),
-            starting_room_intro=data.get("starting_room_intro", ""),
-            is_ending_room=data.get("is_ending_room", False),
-            ending_room_outro=data.get("ending_room_outro", ""),
-            npc_ids=data.get("npc_ids", []),
-            connected_rooms=data.get("connected_rooms", [])
+            id = data.get("id", 0),
+            name = data.get("name", ""),
+            description = data.get("description", ""),
+            long_description  =  data.get("long_description", ""),
+            is_starting_room = data.get("is_starting_room", False),
+            starting_room_intro = data.get("starting_room_intro", ""),
+            is_ending_room = data.get("is_ending_room", False),
+            ending_room_outro = data.get("ending_room_outro", ""),
+            npc_ids = data.get("npc_ids", []),
+            connected_rooms = data.get("connected_rooms", [])
         )
 
     def __str__(self):

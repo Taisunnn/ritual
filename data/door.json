@@ -7,6 +7,7 @@
             "room2_location": "s",
             "name": "Red Door",
             "description": "Door 1 Description",
+            "long_description": "ENTER LONG DESCRIPTION",
             "is_locked": false,
             "key_item_id": 0
         },   
@@ -17,6 +18,7 @@
             "room2_location": "s",
             "name": "Blue Door",
             "description": "Door 2 Description",
+            "long_description": "ENTER LONG DESCRIPTION",
             "is_locked": true,
             "key_item_id": 1
         }
