@@ -12,9 +12,6 @@ class NPC(GameObject):
 
     def is_in_room(self, id):
         return self.npc_location == id
-    
-    # def inspect(self, room_id):
-    #     print(self.description + '.\n\n')
 
     def speak(self):
         GameOutputController.terminal_print(self.name + ': "' + random.choice(self.dialogue) + '"')

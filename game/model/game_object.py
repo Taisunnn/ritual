@@ -10,11 +10,9 @@ class GameObject():
 
     def inspect(self, room_id):
         GameOutputController.terminal_print(self.description)
-        # print(self.description + "\n\n")
 
     def inspect_in_detail(self, room_id):
         GameOutputController.terminal_print(self.long_description)
-        # print(self.long_description + "\n\n")
 
     def interact(self):
         pass

@@ -32,7 +32,7 @@ class Door(GameObject):
         elif door_location == 'w':
             door_description += 'To your west'
 
-        door_description += ', you see a ' + self.name + '. ' + self.description + '\n\n'
+        door_description += ', you see a ' + self.name + '. ' + self.description
         GameOutputController.terminal_print(door_description)
         
     @classmethod

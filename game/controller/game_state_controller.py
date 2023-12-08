@@ -1,10 +1,5 @@
-# from item_controller import ItemController
-# from .item_controller import ItemController
-# from .npc_controller import NPCController
-# from .room_controller import RoomController
 from .game_object_controller import *
 from .game_output_controller import *
-# from .system_message_controller import SystemMessageController
 from ..constants.keyword_constants import *
 
 class GameStateController:
@@ -13,16 +8,19 @@ class GameStateController:
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super(GameStateController, cls).__new__(cls)
-            # NPCController()
-            # RoomController()
-            # ItemController()
+            
+            # ? init GameObjectController to load all game objects
             GameObjectController()
+
+            # ? Variables to keep track of current state of the progress
             cls._instance.game_ongoing = True
             cls._instance.current_location = 1
             cls._instance.inventory = []
+
         return cls._instance
     
     def start(self):
+
         GameObjectController().load_room_id(self.current_location)
 
         while(self.game_ongoing):
@@ -143,4 +141,4 @@ class GameStateController:
                     else:
                         print('It doesn\'t seem to do anything...' + '\n\n')
             elif action in LOOK_KEYWORD:
-                GameObjectController().get_object_description(command, self.current_location)
+                GameOutputController.terminal_print(target_objects[0].long_description)

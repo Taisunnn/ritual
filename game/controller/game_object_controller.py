@@ -2,7 +2,6 @@ import json
 import os
 
 from game.controller import game_state_controller
-
 from ..model.door import Door
 from ..model.item import Item
 from ..model.npc import NPC
@@ -14,9 +13,9 @@ class GameObjectController:
 
     def __new__(cls):
         if cls._instance is None:
-
             game_objects = []
 
+            # ? Load all objects from json file
             f=open(os.getcwd() + '/data/door.json')
             doorsData = json.load(f)
             for doorData in doorsData['doors']:
@@ -37,9 +36,12 @@ class GameObjectController:
             for roomData in roomsData['rooms']:
                 game_objects.append(Room.from_dict(roomData))
 
+            # ? Create instance of the object
             cls._instance = super(GameObjectController, cls).__new__(cls)
+
+            # ? array that will hold all the game objects and relevant game objects
             cls._instance.game_objects = game_objects
-            cls._instance.current_objects = []
+            cls._instance.relevant_objects = []
         return cls._instance
     
     @staticmethod
@@ -47,19 +49,16 @@ class GameObjectController:
         return game_state_controller.GameStateController().current_location
 
     def load_room_id(self, id):
-        self.current_objects = [game_object for game_object in self.game_objects if game_object.is_in_room(id)]
-        self.current_objects.reverse()
-        self.get_descriptions(id)
-
-    def get_descriptions(self, room_id):
-        temp_object_list = [game_object for game_object in self.game_objects if game_object.is_in_room(room_id)]
+        self.relevant_objects = [game_object for game_object in self.game_objects if game_object.is_in_room(id)]
+        self.relevant_objects.reverse()
+        temp_object_list = [game_object for game_object in self.game_objects if game_object.is_in_room(id)]
         temp_object_list.reverse()
         for game_object in temp_object_list:
-            game_object.inspect(room_id)
+            game_object.inspect(id)
 
     def determine_targets(self, command, inventory):
         target_objects = []
-        for object in self.current_objects + inventory:
+        for object in self.relevant_objects + inventory:
             if object.name.lower() in command:
                 command  = command.replace(object.name, "").strip()
                 command  = command.replace(object.name.lower(), "").strip()
@@ -69,20 +68,6 @@ class GameObjectController:
     def get_item_id(self, id):
         object = next((game_object for game_object in self.game_objects if game_object.object_type == 'item' and game_object.id == id), None)
         return object
-
-    def get_object(self, name):
-        object = next((game_object for game_object in self.current_objects if game_object.name.lower() == name), None)
-        return object
-
-    def get_object_description(self, name, room_id):
-        object = next((game_object for game_object in self.current_objects if game_object.name.lower() == name), None)
-        if object is not None:
-            object.inspect(room_id) 
-
-    def get_item_description(self, name):
-        object = next((game_object for game_object in self.current_objects if game_object.object_type == 'item' and game_object.name.lower() == name), None)
-        if object is not None:
-            object.inspect(self._current_room) 
 
     def get_object_category(self, category_name):
         temp_object_list = [game_object for game_object in self.game_objects if game_object.is_in_room(self._current_room()) and game_object.object_type == category_name]
@@ -101,8 +86,8 @@ class GameObjectController:
     def remove_object(self, game_object):
         if game_object in self.game_objects:
             self.game_objects.remove(game_object)
-        if game_object in self.current_objects:
-            self.current_objects.remove(game_object)
+        if game_object in self.relevant_objects:
+            self.relevant_objects.remove(game_object)
 
     def unlock_door(self, door, key_id):
         index = -1
