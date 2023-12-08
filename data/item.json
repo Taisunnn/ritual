@@ -2,20 +2,34 @@
     "items": [
         {
             "id": 1,
-            "name": "Item Name",
-            "description": "Item description",
-            "is_combined_item": false,
-            "combination": [],
-            "combine_success_description": ""
+            "name": "Key",
+            "description": "You found this key on the table in the parlor. You are not sure where it is used for",
+            "item_location": 1,
+            "location_description": "You see a key on a table"
         },
         {
-            "id": 5,
-            "name": "Item Name",
+            "id": 2,
+            "name": "Half of Key (A)",
+            "description": "Item description",
+            "item_location": 2,
+            "location_description": "You see this on a table"
+
+        },
+        {
+            "id": 3,
+            "name": "Half of Key (B)",
+            "description": "Item description",
+            "item_location": 2,
+            "location_description": "You see this on a table"
+        },
+        {
+            "id": 4,
+            "name": "Combined Key",
             "description": "Item description",
             "is_combined_item": true,
             "combination": [
-                1,
-                2
+                2,
+                3
             ],
             "combine_success_description": "Combine Dialogue"
         }

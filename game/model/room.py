@@ -2,14 +2,13 @@ from .game_object import GameObject
 
 
 class Room(GameObject):
-    def __init__(self, id, name, description, is_starting_room, starting_room_intro, is_ending_room, ending_room_outro, item_ids, npc_ids, connected_rooms):
+    def __init__(self, id, name, description, is_starting_room, starting_room_intro, is_ending_room, ending_room_outro, npc_ids, connected_rooms):
         super().__init__('room', name, description)
         self.id = id
         self.is_starting_room = is_starting_room
         self.starting_room_intro = starting_room_intro
         self.is_ending_room = is_ending_room
         self.ending_room_outro = ending_room_outro
-        self.item_ids = item_ids
         self.npc_ids = npc_ids
         self.connected_rooms = connected_rooms
 
@@ -25,7 +24,6 @@ class Room(GameObject):
             "starting_room_intro": self.starting_room_intro,
             "is_ending_room": self.is_ending_room,
             "ending_room_outro": self.ending_room_outro,
-            "item_ids": self.item_ids,
             "npc_ids": self.npc_ids,
             "connected_rooms": self.connected_rooms
         }
@@ -40,7 +38,6 @@ class Room(GameObject):
             starting_room_intro=data.get("starting_room_intro", ""),
             is_ending_room=data.get("is_ending_room", False),
             ending_room_outro=data.get("ending_room_outro", ""),
-            item_ids=data.get("item_ids", []),
             npc_ids=data.get("npc_ids", []),
             connected_rooms=data.get("connected_rooms", [])
         )

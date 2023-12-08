@@ -22,9 +22,7 @@ class GameStateController:
         return cls._instance
     
     def start(self):
-        # RoomController().to_start()
         GameObjectController().load_room_id(self.current_location)
-
 
         while(self.game_ongoing):
             user_command = input('\tWhat do you do? : ')
@@ -41,8 +39,8 @@ class GameStateController:
                 for action_command in ACTION_KEYWORD:
                     if action_command in user_command:
                         is_action = True
-                        target  = user_command.replace(action_command, "").strip()
-                        self.action(action_command, target)
+                        command  = user_command.replace(action_command, "").strip()
+                        self.action(action_command, command)
                         break
                 if not is_action:
                     print('Unrecognized Action: ' + '"'  + user_command + '"' + '\n\n')
@@ -53,49 +51,64 @@ class GameStateController:
         moved = False
         for door in doors:
             if door.room1_id == self.current_location and door.room1_location == command:
-                self.current_location = door.room2_id
-                GameObjectController().load_room_id(self.current_location)
+                # self.current_location = door.room2_id
+                # GameObjectController().load_room_id(self.current_location)
+                self.use_door(door.room2_id, door)
                 moved = True
                 break
             elif door.room2_id == self.current_location and door.room2_location == command:
                 self.current_location = door.room1_id
                 GameObjectController().load_room_id(self.current_location)
+                self.use_door(door.room1_id, door)
                 moved = True
                 break
         if not moved:
             print('"There is no pathway in that direction..."\n\n')
 
-    def action(self, action, target):
+    def use_door(self, new_location_id, door):
+        if not door.is_locked:
+            self.current_location = new_location_id
+            GameObjectController().load_room_id(self.current_location)
+        else:
+            print('You try the door and realize that the ' + door.name + ' is locked' + '\n\n')
+
+
+    def action(self, action, command):
         if action in INVENTORY_KEYWORD:
             print('You look at what you currently have\n')
             if len(self.inventory) == 0:
                 print("You currently don't have anything\n")
             else:
                 for item in self.inventory:
-                    GameObjectController().get_item_description(item.name)
+                    item.inventory_inspect()
         else:
             # Determine which object the action is being used
-            target_object = self._determine_target(target)            
-            if target_object == None:
-                print('Unrecognized Target: ' + '"' + target + '"' + '\n\n')
+            target_objects = self._determine_targets(command)            
+            if len(target_objects) == 0:
+                print('Unrecognized Target: ' + '"' + command + '"' + '\n\n')
                 return
 
             # Determine which action is used on the object
             if action in TALK_KEYWORD:
-                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + target + '\n\n')
+                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
             elif action in PICK_UP_KEYWORD:
-                if target_object.object_type == 'item':
-                    print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + target + '\n\n')
+                if len(target_objects) == 1:
+                    if target_objects[0].object_type == 'item':
+                        self.inventory.append(target_objects[0])
+                        print('You picked up the ' + target_objects[0].name + ' and added to your bag' + '\n\n')
+                        # print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + target + '\n\n')
+                    else:
+                        print('You can\'t pick up ' + '"' + command + '"' + '\n\n')
                 else:
-                    print('You can\'t pick up ' + '"' + target + '"' + '\n\n')
+                    print('Enter one object at a time when picking things up' + '\n\n')
             elif action in COMBINE_KEYWORD:
-                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + target + '\n\n')
+                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
             elif action in INTERACT_KEYWORD:
-                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + target + '\n\n')
+                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
             elif action in UNLOCK_KEYWORD:
-                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + target + '\n\n')
+                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
             elif action in LOOK_KEYWORD:
-                GameObjectController().get_object_description(target, self.current_location)
+                GameObjectController().get_object_description(command, self.current_location)
 
 
     def _determine_target(self, target):
@@ -108,3 +121,12 @@ class GameStateController:
             target_object = GameObjectController().get_object(target)
         
         return target_object
+    
+    def _determine_targets(self, command):
+        target_objects = []
+        for object in GameObjectController().current_objects + self.inventory:
+            if object.name.lower() in command:
+                command  = command.replace(object.name, "").strip()
+                target_objects.append(object)
+
+        return target_objects

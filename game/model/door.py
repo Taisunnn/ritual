@@ -1,6 +1,5 @@
 from .game_object import GameObject
 
-
 class Door(GameObject):
     def __init__(self, room1_id, room1_location, room2_id, room2_location, name, description, is_locked, key_item_id):
         super().__init__('door', name, description)
@@ -53,14 +52,14 @@ class Door(GameObject):
     @classmethod
     def from_dict(cls, data):
         return cls(
-            room1_id=data.get("room1_id", 0),
-            room1_location=data.get("room1_location", ""),
-            room2_id=data.get("room2_id", 0),
-            room2_location=data.get("room2_location", ""),
-            name=data.get("name", ""),
-            description=data.get("description", ""),
-            is_locked=data.get("is_locked", False),
-            key_item_id=data.get("key_item_id", 0),
+            room1_id = data.get("room1_id", 0),
+            room1_location = data.get("room1_location", ""),
+            room2_id = data.get("room2_id", 0),
+            room2_location = data.get("room2_location", ""),
+            name = data.get("name", ""),
+            description = data.get("description", ""),
+            is_locked = data.get("is_locked", False),
+            key_item_id = data.get("key_item_id", 0),
         )
 
     def __str__(self):
