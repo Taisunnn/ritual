@@ -85,8 +85,10 @@ class GameStateController:
                 return
 
             # Determine which action is used on the object
-            if action in TALK_KEYWORD:
-                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+            if action in NPC_KEYWORD:
+                # print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+                if action is 'talk' and target_objects[0].object_type is 'npc':
+                    target_objects[0].speak()
             elif action in PICK_UP_KEYWORD:
                 if len(target_objects) == 1:
                     if target_objects[0].object_type == 'item':
@@ -118,7 +120,7 @@ class GameStateController:
                 temp_item_list = [object for object in target_objects if object.object_type == 'item']
                 temp_door_list = [object for object in target_objects if object.object_type == 'door']
                 if len(temp_item_list) == 0 or len(temp_door_list) == 0 :
-                    print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+                    print('Target Not Found' + '\n\n')
                 elif len(temp_item_list) > 1 or len(temp_door_list) > 1 :
                     print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
                 else:
