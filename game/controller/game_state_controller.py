@@ -22,6 +22,8 @@ class GameStateController:
     def start(self):
         # ? Load starting room
         GameObjectController().load_room_id(self.current_location)
+        
+        GameOutputController.terminal_print()
 
         # ? Get user input until game is over
         while(self.game_ongoing):
@@ -150,9 +152,13 @@ class GameStateController:
         if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
             GameOutputController.terminal_print('Target Not Found', no_ending=True)
         elif len(temp_item_list) > 1 or len(temp_npc_list[0].ending_items) > 0:
-            if temp_item_list == temp_npc_list[0].ending_items:
-                GameOutputController.terminal_print('You are missing something')
+            item_ids = [item.id for item in temp_item_list]
+            item_ids.sort()
+            if item_ids == temp_npc_list[0].ending_items:
+                GameOutputController.terminal_print(temp_npc_list[0].ending_quote)
                 self.game_ongoing = False
+            else:
+                GameOutputController.terminal_print('"Something is not write..."')
         else:
             item_from_npc = GameObjectController().give_npc(temp_npc_list[0], temp_item_list[0])
             if item_from_npc is not None:
