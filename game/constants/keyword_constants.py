@@ -45,7 +45,7 @@ INVENTORY_KEYWORD = [
 ]
 
 SPECIAL_KEYWORD = [
-    # 'use'
+    'use'
 ]
 
 # keywords for action
