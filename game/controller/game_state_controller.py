@@ -12,9 +12,9 @@ class GameStateController:
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super(GameStateController, cls).__new__(cls)
-            NPCController()
-            RoomController()
-            ItemController()
+            # NPCController()
+            # RoomController()
+            # ItemController()
             GameObjectController()
             cls._instance.game_ongoing = True
             cls._instance.current_location = 1
@@ -123,7 +123,6 @@ class GameStateController:
                         if inventory_object in self.inventory:
                             self.inventory.remove(inventory_object)
                     self.inventory.append(combined_item)
-                    # print('You combine the items and get ' + ('an ' if combined_item.name[0] in ['a', 'e', 'i', 'o', 'u'] else 'a ') + combined_item.name + '.' + '\n\n')
                     print(combined_item.combine_success_description + '\n\n')
                 else:
                     print('You can\'t combine these items.' + '\n\n')

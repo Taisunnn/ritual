@@ -1,12 +1,20 @@
+from game.controller.game_output_controller import *
+
 class GameObject():
 
-    def __init__(self, object_type, name, description):
+    def __init__(self, object_type, name, description, long_description):
         self.object_type = object_type
         self.name = name
         self.description = description
+        self.long_description = long_description
 
     def inspect(self, room_id):
-        print(self.description + "\n\n")
+        GameOutputController.terminal_print(self.description)
+        # print(self.description + "\n\n")
+
+    def inspect_in_detail(self, room_id):
+        GameOutputController.terminal_print(self.long_description)
+        # print(self.long_description + "\n\n")
 
     def interact(self):
         pass

@@ -5,7 +5,7 @@
             "name": "Ghost",
             "description": "A tired looking Ghost is standing in the corner of the room",
             "long_description": "The Ghost seems to be a Tall gentleman wearing clothes from the 80s. His eyes stare into distance, not you, and mumbling something. Maybe I should talk to him.",
-            "npc_location": 1, 
+            "npc_location": 2, 
             "dialogue": [
                 "...I need a doll for my daughter...",
                 "...doll...doll...",

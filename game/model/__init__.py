@@ -1,10 +1,10 @@
 # Import modules
-from . import game_object
-from . import door
-from . import item
-from . import npc
-from . import room
-from . import system_message
+# from . import game_object
+# from . import door
+# from . import item
+# from . import npc
+# from . import room
+# from . import system_message
 
 # Define package-level constants
 PACKAGE_VERSION = "1.0"

@@ -1,8 +1,9 @@
-from .game_object import GameObject
+from game_object import GameObject
+from game.controller.game_output_controller import *
 
 class Item(GameObject):
-    def __init__(self, id, name, description, item_location, location_description, is_combined_item, combination, combine_success_description):
-        super().__init__('item', name, description)
+    def __init__(self, id, name, description, long_description, item_location, location_description, is_combined_item, combination, combine_success_description):
+        super().__init__('item', name, description, long_description)
         self.id = id
         self.item_location = item_location
         self.location_description = location_description
@@ -14,20 +15,10 @@ class Item(GameObject):
         return self.item_location == id
     
     def inspect(self, room_id):
-        print(self.location_description + '.\n\n')
+        GameOutputController.terminal_print(self.location_description)
     
     def inventory_inspect(self):
-        print(' - ' + self.name + ': ' +self.description + '.\n\n')
-
-    # def to_json(self):
-    #     return {
-    #         "id": self.id,
-    #         "name": self.name,
-    #         "description": self.description,
-    #         "is_combined_item": self.is_combined_item,
-    #         "combination": self.combination,
-    #         "combine_success_description": self.combine_success_description
-    #     }
+        GameOutputController.terminal_print(' - ' + self.name + ': ' +self.description)
 
     @classmethod
     def from_dict(cls, data):
@@ -35,6 +26,7 @@ class Item(GameObject):
             id = data.get("id", 0),
             name = data.get("name", ""),
             description = data.get("description", ""),
+            long_description = data.get("long_description", ""),
             item_location = data.get("item_location", 0),
             location_description = data.get("location_description", ""),
             is_combined_item = data.get("is_combined_item", False),
