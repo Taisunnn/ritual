@@ -2,6 +2,7 @@ import json
 import os
 
 from game.controller import game_state_controller
+from game.controller.game_output_controller import *
 from ..model.door import Door
 from ..model.item import Item
 from ..model.npc import NPC
@@ -103,10 +104,10 @@ class GameObjectController:
     def give_npc(self, npc, item):
         if npc.item_interactions[0]["interact_item_id"] == item.id:
             npc_item = self.get_item_id(npc.item_interactions[0]["give_item_id"])
-            print(npc.name + ': "' + npc.item_interactions[0]["dialogue"] + '"\n\n')
-            print(npc.name + ' gives you ' + npc_item.name + '\n\n')
+            GameOutputController.terminal_print(npc.name + ': "' + npc.item_interactions[0]["dialogue"] + '"', no_ending=True)
+            GameOutputController.terminal_print(npc.name + ' gives you ' + npc_item.name)
             self.remove_object(npc)
             self.remove_object(item)
             return npc_item
-        print('They don\'t seem to respond to it...' + '\n\n')
+        GameOutputController.terminal_print('They don\'t seem to respond to it...')
         return None

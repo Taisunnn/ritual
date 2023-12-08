@@ -7,6 +7,15 @@ class GameOutputController:
         return cls._instance
     
     @staticmethod
-    def terminal_print(message):
-        print(message + '.\n\n')
+    def terminal_print(message, no_ending = False):
+        if no_ending:
+            print(message + '\n\n')
+        else:
+            print(message + '.\n\n')
 
+    @staticmethod
+    def terminal_print_single_nextline(message, no_ending = False):
+        if no_ending:
+            print(message + '\n')
+        else:
+            print(message + '.\n')
