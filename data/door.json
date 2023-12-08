@@ -2,11 +2,11 @@
     "doors": [
         {
             "room1_id": 1,
-            "room1_location": "n",
+            "room1_location": "e",
             "room2_id": 2,
-            "room2_location": "s",
-            "name": "Red Door",
-            "description": "Door 1 Description",
+            "room2_location": "w",
+            "name": "brown door",
+            "description": "",
             "is_locked": false,
             "key_item_id": 0
         },   
@@ -15,10 +15,100 @@
             "room1_location": "n",
             "room2_id": 3,
             "room2_location": "s",
-            "name": "Blue Door",
-            "description": "Door 2 Description",
+            "name": "blue door",
+            "description": "",
+            "is_locked": false,
+            "key_item_id": 0
+        },
+        {
+            "room1_id": 2,
+            "room1_location": "e",
+            "room2_id": 6,
+            "room2_location": "w",
+            "name": "couple of stairs",
+            "description": "",
+            "is_locked": false,
+            "key_item_id": 0
+        },
+        {
+            "room1_id": 2,
+            "room1_location": "s",
+            "room2_id": 10,
+            "room2_location": "n",
+            "name": "puzzle door",
+            "description": "",
+            "is_locked": true,
+            "key_item_id": 5
+        },
+        {
+            "room1_id": 3,
+            "room1_location": "e",
+            "room2_id": 4,
+            "room2_location": "w",
+            "name": "green door",
+            "description": "",
             "is_locked": true,
             "key_item_id": 1
+        },
+        {
+            "room1_id": 4,
+            "room1_location": "e",
+            "room2_id": 5,
+            "room2_location": "w",
+            "name": "purple door",
+            "description": "",
+            "is_locked": false,
+            "key_item_id": 0
+        },
+        {
+            "room1_id": 6,
+            "room1_location": "n",
+            "room2_id": 7,
+            "room2_location": "s",
+            "name": "glass door",
+            "description": "",
+            "is_locked": false,
+            "key_item_id": 0
+        },
+        {
+            "room1_id": 6,
+            "room1_location": "e",
+            "room2_id": 8,
+            "room2_location": "w",
+            "name": "double door",
+            "description": "",
+            "is_locked": false,
+            "key_item_id": 0
+        },
+        {
+            "room1_id": 6,
+            "room1_location": "s",
+            "room2_id": 9,
+            "room2_location": "n",
+            "name": "trap door",
+            "description": "",
+            "is_locked": false,
+            "key_item_id": 0
+        },
+        {
+            "room1_id": 10,
+            "room1_location": "e",
+            "room2_id": 11,
+            "room2_location": "w",
+            "name": "black door",
+            "description": "",
+            "is_locked": false,
+            "key_item_id": 0
+        },
+        {
+            "room1_id": 11,
+            "room1_location": "",
+            "room2_id": 11,
+            "room2_location": "",
+            "name": "Altar",
+            "description": "Place the missing items on this altar",
+            "is_locked": false,
+            "key_item_id": 0
         }
     ]
 }

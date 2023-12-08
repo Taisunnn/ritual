@@ -2,8 +2,9 @@
     "rooms": [
         {
             "id": 1,
-            "name": "Room 1",
-            "description": "You find yourself in a dimly lit parlor, nestled within the eerie confines of the creepy mansion. The air feels heavy and cold, and the room exudes an unsettling stillness. The faded, ornate wallpaper peels away from the walls, revealing the passage of time in this forgotten space. Tattered, cobweb-draped curtains hang limply over tall, cracked windows, allowing only feeble moonlight to pierce the darkness.\n\nIn the center of the room, a weathered velvet couch sits, its once-rich color now a somber shade of gray. A dusty, grand piano occupies one corner, its keys untouched for decades, yet an eerie melody seems to linger in the air. A long-abandoned tea set rests on a tarnished silver tray atop an antique coffee table, a haunting reminder of past gatherings.\n\nYour attention is drawn to a heavy wooden door, ornately carved with intricate patterns, leading to a first-floor hallway to the north. The door's surface is marred with age, and it creaks ominously as if reluctant to reveal the secrets of the mansion beyond. The flickering candlelight casts elongated shadows that dance upon the floor, making you hesitate before taking the next step into the foreboding hallway.",
+            "name": "Parlour",
+            "description": "You enter the parlour with beautiful artworks across the walls",
+            "long_description": "Elegant floral-patterned wallpaper adorns the walls, and plush, velvety furniture sits under dim chandeliers. Sunlight filters through heavy drapes, casting a nostalgic glow on antique coffee tables and forgotten magazines, capturing the essence of vintage sophistication",
             "is_starting_room": true,
             "starting_room_intro": "Starting Quote",
             "is_ending_room": false,
@@ -12,8 +13,9 @@
         },
         {
             "id": 2,
-            "name": "Room 2",
-            "description": "You step through the heavy wooden door, entering the first-floor hallway of the eerie mansion. The air here is just as cold and the atmosphere equally unsettling as the parlor you've left behind. Flickering sconces along the walls cast erratic shadows that seem to sway to their own ghostly rhythm.\n\nTo the north, a grand wooden staircase beckons, its steps worn with age and a faint, ghostly whisper echoing from above. It leads to the upper floor, shrouded in even deeper darkness and mystery.\n\nTurning your gaze to the east, an innocent-looking bookshelf stands against the wall, its wooden frame adorned with dusty old tomes. Yet, something about it seems subtly out of place, its presence intriguingly mysterious. A chill runs down your spine as you wonder what secrets might be concealed behind those shelves, waiting for the curious to discover.\n\nAnd to the west, another hallway veers off, its passage obscured by the gloom, impossible to see where it leads, but the faintest whisper of a draft tickles your senses, carrying with it a scent of dampness and decay.",
+            "name": "First Floor Hallway",
+            "description": "You see the long First Floor Hallway, you feel something is watching you",
+            "long_description": "A narrow path unfolds beneath a classic chandelier. A muted color palette adorns the walls, complementing the aged hardwood floor. Closed doors line the passage, veiling the history within. The faint ticking of a grandfather clock adds a timeless rhythm to the hushed ambiance.",
             "is_starting_room": false,
             "starting_room_intro": "",
             "is_ending_room": false,
@@ -22,12 +24,101 @@
         },
         {
             "id": 3,
-            "name": "Room 3",
-            "description": "The third room opens up into an enigmatic gallery filled with peculiar artwork. Paintings of surreal landscapes and bizarre creatures cover the walls, each one more mystifying than the last. The air is filled with an eerie silence, broken only by the faint sound of your footsteps on the creaky wooden floor. In the center of the room stands a pedestal holding a peculiar statue of a figure with an inscrutable expression. Moonlight filters in through a cracked skylight, casting eerie shadows on the artwork. The only visible exit is a wooden door leading to the north, beckoning you to continue your investigation.",
+            "name": "Ballroom",
+            "description": "You enter the Ballroom",
+            "long_description": "The ballroom in the mansion, a grand space frozen in elegance. '80s opulence exudes from gilded moldings and crystal chandeliers. A parquet dance floor reflects a history of waltzes, while long-forgotten echoes linger.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "npc_ids": [1]
+        },
+        {
+            "id": 4,
+            "name": "Kitchen",
+            "description": "You enter the kitchen and you smell wonderful food, but nothing is cooking",
+            "long_description": "Formica countertops bear witness to culinary tales, while a vintage refrigerator hums softly. Utensils hang from a pegboard, and a retro clock keeps time over a worn, checkered floor.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "npc_ids": []
+        },
+        {
+            "id": 5,
+            "name": "Dining Room",
+            "description": "You see the dining room, you hear the laughs and cheers of people, but no one is here",
+            "long_description": "The mansion's dining room, a timeless tableau of sophistication. An ornate '80s chandelier illuminates a polished mahogany table, draped in a lace runner. High-backed chairs await, surrounded by walls adorned with classic artwork.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "npc_ids": []
+        },
+        {
+            "id": 6,
+            "name": "Second Floor Hallway",
+            "description": "You enter the second floor hallway as the old floor creeks",
+            "long_description": "Ascending the grand staircase, the second-floor hallway unfolds in the mansion. '80s floral wallpaper lines the corridor, complementing the plush carpet underfoot. Antique sconces cast a soft glow, revealing closed doors that guard the secrets of rooms past.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "npc_ids": []
+        },
+        {
+            "id": 7,
+            "name": "Library",
+            "description": "You see a Library with bookshelves as far as the eye can see",
+            "long_description": "The mansion's library, a sanctuary of knowledge frozen in time. Mahogany bookshelves reach toward a coffered ceiling, housing leather-bound volumes and '80s encyclopedias. Dusty armchairs beckon, surrounded by the musky scent of aged paper.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "npc_ids": [2]
+        },
+        {
+            "id": 8,
+            "name": "Bedroom",
+            "description": "You enter the Bedroom",
+            "long_description": "In an '80s bedroom of the mansion, a four-poster bed with a canopy takes center stage. Floral-patterned wallpaper envelops the room, and sunlight filters through lacy curtains. A vanity adorned with perfume bottles stands as a testament to past beautification rituals.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "npc_ids": []
+        },
+        {
+            "id": 9,
+            "name": "Attic",
+            "description": "You see the Attic with endless cobwebs and dust everywhere",
+            "long_description": "Dust-covered trunks and forgotten relics gather beneath eaves. Faded cardboard boxes, remnants of a bygone era, hold vintage clothes and forgotten memorabilia. Shafts of light pierce through cobweb-laden windows, illuminating a silent attic that guards the nostalgia of yesteryears.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "npc_ids": []
+        },
+        {
+            "id": 10,
+            "name": "Dungeon",
+            "description": "You enter the stoned Dungeon as you hear drips of water from the surface",
+            "long_description": "Beneath the mansion, an ominous '80s dungeon lurks in shadow. Stone walls echo with the past, chains hang from the ceiling, and a rusted iron door conceals secrets. Dim candlelight flickers, revealing forgotten instruments of restraint and a cold, damp atmosphere that holds the weight of untold mysteries.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "npc_ids": [2]
+        },
+        {
+            "id": 11,
+            "name": "Ritual Room",
+            "description": "You see the Ritual Room and a cold breeze passes you.",
+            "long_description": "Within the mansion, a ritual room lies shrouded in mystique. Crimson velvet drapes adorn the walls, framing an ornate altar bathed in flickering candlelight. Mysterious symbols are etched on the floor, and antique artifacts hint at arcane practices.",
             "is_starting_room": false,
             "starting_room_intro": "",
             "is_ending_room": true,
-            "ending_room_outro": "Ending Quote",
+            "ending_room_outro": "You have released the demon... Your soul has been devoured",
             "npc_ids": []
         }
     ]

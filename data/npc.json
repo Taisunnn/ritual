@@ -1,23 +1,37 @@
 {
     "npcs": [
         {
-            "id": 0,
-            "name": "ghost",
-            "description": "A tired looking Ghost is standing in the corner of the room",
-            "location_id": 3, 
+            "id": 1,
+            "name": "Crying Lady",
+            "description": "A mysterious Crying Lady is standing in the corner of the room",
+            "long_description": "The slender ghost seems to be a crying old mother wearing clothes from the 80s. Her eyes stare into distance, not you, and mumbling something. Maybe I should talk to her.",
+            "npc_location": 3, 
             "dialogue": [
-                "Hello",
-                "Hi",
-                "What do you want?"
+                "Shiny...",
+                "Where is my precious...",
+                "I lost my daughter's gift... I must find it..."
             ],
             "item_interactions": [
                 {
-                    "interact_item_id": 1,
+                    "interact_item_id": 10,
                     "player_action": "give",
-                    "dialogue": "Oh! I was looking for this! Thanks!",
+                    "dialogue": "Thank you... You might find this useful...",
                     "reaction": "get",
-                    "give_item_id": 6
+                    "give_item_id": 8
                 }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Ghost Priest",
+            "description": "A Ghost Priest",
+            "long_description": "A giant figure, towers over you. He is wearing a raggedy black vestment and is holding a cross upside down. Maybe I should talk to him.",
+            "npc_location": 3, 
+            "dialogue": [
+                "We must complete the Ritual",
+                "Silent gaze, porcelain attire, Who am I, a relic of desire?",
+                "Rusted companion, '80s blade, In shadows waiting, what am I made?",
+                "Worn by time, a fabric's grace, What am I, in an abandoned space?"
             ]
         }
     ]
