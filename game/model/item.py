@@ -17,7 +17,7 @@ class Item(GameObject):
         print(self.location_description + '.\n\n')
     
     def inventory_inspect(self):
-        print(' - ' + self.name + '. ' +self.description + '.\n\n')
+        print(' - ' + self.name + ': ' +self.description + '.\n\n')
 
     # def to_json(self):
     #     return {

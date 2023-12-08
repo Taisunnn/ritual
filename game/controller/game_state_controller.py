@@ -108,7 +108,8 @@ class GameStateController:
                         if inventory_object in self.inventory:
                             self.inventory.remove(inventory_object)
                     self.inventory.append(combined_item)
-                    print('You combine the items and get ' + ('an ' if combined_item.name[0] in ['a', 'e', 'i', 'o', 'u'] else 'a ') + combined_item.name + '.' + '\n\n')
+                    # print('You combine the items and get ' + ('an ' if combined_item.name[0] in ['a', 'e', 'i', 'o', 'u'] else 'a ') + combined_item.name + '.' + '\n\n')
+                    print(combined_item.combine_success_description + '\n\n')
                 else:
                     print('You can\'t combine these items.' + '\n\n')
             elif action in INTERACT_KEYWORD:
