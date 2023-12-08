@@ -77,6 +77,8 @@ class GameStateController:
             else:
                 for item in self.inventory:
                     item.inventory_inspect()
+        elif action in LOCATION_KEYWORD:
+            GameObjectController().load_room_id(self.current_location)
         else:
             # Determine which object the action is being used
             target_objects = GameObjectController().determine_targets(command, self.inventory)            
@@ -147,9 +149,10 @@ class GameStateController:
         temp_npc_list = [object for object in target_objects if object.object_type == 'npc']
         if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
             GameOutputController.terminal_print('Target Not Found', no_ending=True)
-        elif len(temp_item_list) > 1 or len(temp_npc_list) > 1 :
-            # ! FIX THIS!!!
-            GameOutputController.terminal_print('UNIMPLEMENTED FUNCTIONALITY: action(' + action + ") command(" + command + ')', no_ending=True)
+        elif len(temp_item_list) > 1 or len(temp_npc_list[0].ending_items) > 0:
+            if temp_item_list == temp_npc_list[0].ending_items:
+                GameOutputController.terminal_print('You are missing something')
+                self.game_ongoing = False
         else:
             item_from_npc = GameObjectController().give_npc(temp_npc_list[0], temp_item_list[0])
             if item_from_npc is not None:
@@ -161,9 +164,6 @@ class GameStateController:
         temp_npc_list = [object for object in target_objects if object.object_type == 'door']
         if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
             GameOutputController.terminal_print('Target Not Found', no_ending=True)
-        elif len(temp_item_list) > 1 or len(temp_npc_list) > 1 :
-            # ! FIX THIS !!!!
-            GameOutputController.terminal_print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command)
         else:
             unlocked = GameObjectController().unlock_door(temp_npc_list[0], temp_item_list[0].id)
             if unlocked:

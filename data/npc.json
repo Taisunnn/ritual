@@ -7,9 +7,7 @@
             "long_description": "The slender ghost seems to be a crying old mother wearing clothes from the 80s. Her eyes stare into distance, not you, and mumbling something. Maybe I should talk to her.",
             "npc_location": 3, 
             "dialogue": [
-                "Shiny...",
-                "Where is my precious...",
-                "I lost my daughter's gift... I must find it..."
+                "Shiny...\nWhere is my precious...\nI lost my daughter's gift... I must find it..."
             ],
             "item_interactions": [
                 {
@@ -26,13 +24,11 @@
             "name": "Ghost Priest",
             "description": "A Ghost Priest",
             "long_description": "A giant figure, towers over you. He is wearing a raggedy black vestment and is holding a cross upside down. Maybe I should talk to him.",
-            "npc_location": 10, 
+            "npc_location": 11, 
             "dialogue": [
-                "We must complete the Ritual",
-                "Silent gaze, porcelain attire, Who am I, a relic of desire?",
-                "Rusted companion, '80s blade, In shadows waiting, what am I made?",
-                "Worn by time, a fabric's grace, What am I, in an abandoned space?"
-            ]
+                "We must complete the Ritual\nSilent gaze, porcelain attire, Who am I, a relic of desire?\nRusted companion, '80s blade, In shadows waiting, what am I made?\nWorn by time, a fabric's grace, What am I, in an abandoned space?\nI sway in wax with shadows to share, What am I, casting warmth in the air?"
+            ],
+            "ending_items": [1, 2]
         }
     ]
 }

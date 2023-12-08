@@ -103,16 +103,6 @@
             "description": "",
             "is_locked": false,
             "key_item_id": 0
-        },
-        {
-            "room1_id": 11,
-            "room1_location": "",
-            "room2_id": 11,
-            "room2_location": "",
-            "name": "Altar",
-            "description": "Place the missing items on this altar",
-            "is_locked": false,
-            "key_item_id": 0
         }
     ]
 }
