@@ -33,6 +33,3 @@ class Item(GameObject):
             combination = data.get("combination", []),
             combine_success_description = data.get("combine_success_description", "")
         )
-    
-    def __str__(self):
-        return f"Item ID: {self.id}, Name: {self.name}, Description: {self.description}"
