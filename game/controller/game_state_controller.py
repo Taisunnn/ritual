@@ -1,9 +1,10 @@
 # from item_controller import ItemController
-from .item_controller import ItemController
-from .npc_controller import NPCController
-from .room_controller import RoomController
-from .game_object_controller import GameObjectController
-from .system_message_controller import SystemMessageController
+# from .item_controller import ItemController
+# from .npc_controller import NPCController
+# from .room_controller import RoomController
+from .game_object_controller import *
+from .game_output_controller import *
+# from .system_message_controller import SystemMessageController
 from ..constants.keyword_constants import *
 
 class GameStateController:

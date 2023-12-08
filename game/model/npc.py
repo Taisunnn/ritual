@@ -1,5 +1,5 @@
-from game_object import GameObject
-from game.controller.game_output_controller import *
+from .game_object import *
+from game.controller.game_output_controller import *   
 import random
 
 class NPC(GameObject):
@@ -17,7 +17,7 @@ class NPC(GameObject):
     #     print(self.description + '.\n\n')
 
     def speak(self):
-        print(self.name + ': "' + random.choice(self.dialogue) + '"\n\n')
+        GameOutputController.terminal_print(self.name + ': "' + random.choice(self.dialogue) + '"')
 
     @classmethod
     def from_dict(cls, data):

@@ -1,4 +1,4 @@
-from game_object import GameObject
+from .game_object import *
 from game.controller.game_output_controller import *
 
 class Item(GameObject):
