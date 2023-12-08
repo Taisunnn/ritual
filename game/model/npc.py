@@ -1,28 +1,30 @@
-import json
+from .game_object import GameObject
+import random
 
-class NPC():
-    def __init__(self, id, name, description, dialogue, item_interactions):
+class NPC(GameObject):
+    def __init__(self, id, name, description, dialogue, npc_location, item_interactions):
+        super().__init__('npc', name, description)
         self.id = id
-        self.name = name
-        self.description = description
         self.dialogue = dialogue
+        self.npc_location = npc_location
         self.item_interactions = item_interactions
 
-    def to_json(self):
-        return {
-            "id": self.id,
-            "name": self.name,
-            "description": self.description,
-            "dialogue": self.dialogue,
-            "item_interactions": self.item_interactions
-        }
+    def is_in_room(self, id):
+        return self.npc_location == id
+    
+    def inspect(self, room_id):
+        print(self.location_description + '.\n\n')
+
+    def speak(self):
+        print(self.name + ': "' + random.choice(self.dialogue) + '"')
 
     @classmethod
-    def from_json(cls, json_data):
+    def from_dict(cls, data):
         return cls(
-            id=json_data["id"],
-            name=json_data["name"],
-            description=json_data["description"],
-            dialogue=json_data["dialogue"],
-            item_interactions=json_data["item_interactions"]
+            id = data.get("id", 0),
+            name = data.get("name", ""),
+            description = data.get("description", ""),
+            dialogue = data.get("dialogue", []),
+            npc_location = data.get("npc_location", 0),
+            item_interactions = data.get("item_interactions", [])
         )

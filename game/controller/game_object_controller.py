@@ -27,10 +27,10 @@ class GameObjectController:
             for itemData in itemsData['items']:
                 game_objects.append(Item.from_dict(itemData))
 
-            # f=open(os.getcwd() + '/data/npc.json')
-            # npcsData = json.load(f)
-            # for npcData in npcsData['npcs']:
-            #     game_objects.append(NPC.from_dict(npcData))
+            f=open(os.getcwd() + '/data/npc.json')
+            npcsData = json.load(f)
+            for npcData in npcsData['npcs']:
+                game_objects.append(NPC.from_dict(npcData))
 
             f=open(os.getcwd() + '/data/room.json')
             roomsData = json.load(f)
