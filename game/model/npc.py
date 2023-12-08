@@ -3,12 +3,13 @@ from game.controller.game_output_controller import *
 import random
 
 class NPC(GameObject):
-    def __init__(self, id, name, description, long_description, dialogue, npc_location, item_interactions):
+    def __init__(self, id, name, description, long_description, dialogue, npc_location, item_interactions, ending_items):
         super().__init__('npc', name, description, long_description)
         self.id = id
         self.dialogue = dialogue
         self.npc_location = npc_location
         self.item_interactions = item_interactions
+        self.ending_items = ending_items
 
     def is_in_room(self, id):
         return self.npc_location == id
@@ -25,5 +26,6 @@ class NPC(GameObject):
             long_description = data.get("long_description", ""),
             dialogue = data.get("dialogue", []),
             npc_location = data.get("npc_location", 0),
-            item_interactions = data.get("item_interactions", [])
+            item_interactions = data.get("item_interactions", []),
+            ending_items = data.get("ending_items", [])
         )

@@ -1,25 +1,34 @@
 {
     "npcs": [
         {
-            "id": 0,
-            "name": "Ghost",
-            "description": "A tired looking Ghost is standing in the corner of the room",
-            "long_description": "The Ghost seems to be a Tall gentleman wearing clothes from the 80s. His eyes stare into distance, not you, and mumbling something. Maybe I should talk to him.",
-            "npc_location": 2, 
+            "id": 1,
+            "name": "Crying Lady",
+            "description": "A mysterious Crying Lady is standing in the corner of the room",
+            "long_description": "The slender ghost seems to be a crying old mother wearing clothes from the 80s. Her eyes stare into distance, not you, and mumbling something. Maybe I should talk to her.",
+            "npc_location": 3, 
             "dialogue": [
-                "...I need a doll for my daughter...",
-                "...doll...doll...",
-                "...I lost my daughter's gift...I must find it..."
+                "Shiny...\nWhere is my precious...\nI lost my daughter's gift... I must find it..."
             ],
             "item_interactions": [
                 {
-                    "interact_item_id": 4,
+                    "interact_item_id": 10,
                     "player_action": "give",
-                    "dialogue": "Oh! I was looking for this! Thanks!",
+                    "dialogue": "Thank you... You might find this useful...",
                     "reaction": "get",
-                    "give_item_id": 5
+                    "give_item_id": 8
                 }
             ]
+        },
+        {
+            "id": 2,
+            "name": "Ghost Priest",
+            "description": "A Ghost Priest",
+            "long_description": "A giant figure, towers over you. He is wearing a raggedy black vestment and is holding a cross upside down. Maybe I should talk to him.",
+            "npc_location": 11, 
+            "dialogue": [
+                "We must complete the Ritual\nSilent gaze, porcelain attire, Who am I, a relic of desire?\nRusted companion, '80s blade, In shadows waiting, what am I made?\nWorn by time, a fabric's grace, What am I, in an abandoned space?\nI sway in wax with shadows to share, What am I, casting warmth in the air?"
+            ],
+            "ending_items": [1, 2]
         }
     ]
 }
