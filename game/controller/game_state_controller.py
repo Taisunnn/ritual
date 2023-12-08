@@ -51,14 +51,10 @@ class GameStateController:
         moved = False
         for door in doors:
             if door.room1_id == self.current_location and door.room1_location == command:
-                # self.current_location = door.room2_id
-                # GameObjectController().load_room_id(self.current_location)
                 self.use_door(door.room2_id, door)
                 moved = True
                 break
             elif door.room2_id == self.current_location and door.room2_location == command:
-                self.current_location = door.room1_id
-                GameObjectController().load_room_id(self.current_location)
                 self.use_door(door.room1_id, door)
                 moved = True
                 break
@@ -118,6 +114,17 @@ class GameStateController:
             elif action in INTERACT_KEYWORD:
                 print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
             elif action in UNLOCK_KEYWORD:
-                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+                temp_item_list = [object for object in target_objects if object.object_type == 'item']
+                temp_door_list = [object for object in target_objects if object.object_type == 'door']
+                if len(temp_item_list) == 0 or len(temp_door_list) == 0 :
+                    print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+                elif len(temp_item_list) > 1 or len(temp_door_list) > 1 :
+                    print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+                else:
+                    unlocked = GameObjectController().unlock_door(temp_door_list[0], temp_item_list[0].id)
+                    if unlocked:
+                        print('You hear a click. It seems unlocked.' + '\n\n')
+                    else:
+                        print('It doesn\'t seem to do anything...' + '\n\n')
             elif action in LOOK_KEYWORD:
                 GameObjectController().get_object_description(command, self.current_location)

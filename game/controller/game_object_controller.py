@@ -99,3 +99,15 @@ class GameObjectController:
             self.game_objects.remove(game_object)
         if game_object in self.current_objects:
             self.current_objects.remove(game_object)
+
+    def unlock_door(self, door, key_id):
+        index = -1
+        try:
+            index = self.game_objects.index(door)
+        except ValueError:
+            return False
+        if not index == -1 and self.game_objects[index].key_item_id == key_id:
+            self.game_objects[index].is_locked = False
+            return True
+        return False
+        

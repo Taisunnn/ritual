@@ -18,7 +18,7 @@
             "name": "Blue Door",
             "description": "Door 2 Description",
             "is_locked": true,
-            "key_item_id": 5
+            "key_item_id": 1
         }
     ]
 }
