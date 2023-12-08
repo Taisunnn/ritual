@@ -83,7 +83,7 @@ class GameStateController:
                     item.inventory_inspect()
         else:
             # Determine which object the action is being used
-            target_objects = self._determine_targets(command)            
+            target_objects = GameObjectController().determine_targets(command, self.inventory)            
             if len(target_objects) == 0:
                 print('Unrecognized Target: ' + '"' + command + '"' + '\n\n')
                 return
@@ -94,39 +94,30 @@ class GameStateController:
             elif action in PICK_UP_KEYWORD:
                 if len(target_objects) == 1:
                     if target_objects[0].object_type == 'item':
-                        self.inventory.append(target_objects[0])
-                        print('You picked up the ' + target_objects[0].name + ' and added to your bag' + '\n\n')
-                        # print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + target + '\n\n')
+                        if target_objects[0] not in self.inventory:
+                            self.inventory.append(target_objects[0])
+                            GameObjectController().remove_object(target_objects[0])
+                            print('You picked up the ' + target_objects[0].name + ' and added to your bag' + '\n\n')
+                        else:
+                            print('That item is already in your bag' + '\n\n')
                     else:
                         print('You can\'t pick up ' + '"' + command + '"' + '\n\n')
                 else:
                     print('Enter one object at a time when picking things up' + '\n\n')
             elif action in COMBINE_KEYWORD:
-                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+                temp_object_list = [object for object in target_objects if object.object_type == 'item']
+                combined_item = GameObjectController().combine_item(temp_object_list)
+                if combined_item is not None:
+                    for inventory_object in temp_object_list:
+                        if inventory_object in self.inventory:
+                            self.inventory.remove(inventory_object)
+                    self.inventory.append(combined_item)
+                    print('You combine the items and get ' + ('an ' if combined_item.name[0] in ['a', 'e', 'i', 'o', 'u'] else 'a ') + combined_item.name + '.' + '\n\n')
+                else:
+                    print('You can\'t combine these items.' + '\n\n')
             elif action in INTERACT_KEYWORD:
                 print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
             elif action in UNLOCK_KEYWORD:
                 print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
             elif action in LOOK_KEYWORD:
                 GameObjectController().get_object_description(command, self.current_location)
-
-
-    def _determine_target(self, target):
-        target_object = None
-        for name in target.split():
-            target_object = GameObjectController().get_object(name)
-            if target_object is not None:
-                break
-        if target_object == None:
-            target_object = GameObjectController().get_object(target)
-        
-        return target_object
-    
-    def _determine_targets(self, command):
-        target_objects = []
-        for object in GameObjectController().current_objects + self.inventory:
-            if object.name.lower() in command:
-                command  = command.replace(object.name, "").strip()
-                target_objects.append(object)
-
-        return target_objects

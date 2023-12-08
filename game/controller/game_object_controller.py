@@ -57,6 +57,15 @@ class GameObjectController:
         for game_object in temp_object_list:
             game_object.inspect(room_id)
 
+    def determine_targets(self, command, inventory):
+        target_objects = []
+        for object in self.current_objects + inventory:
+            if object.name.lower() in command:
+                command  = command.replace(object.name, "").strip()
+                command  = command.replace(object.name.lower(), "").strip()
+                target_objects.append(object)
+        return target_objects
+
     def get_object(self, name):
         object = next((game_object for game_object in self.current_objects if game_object.name.lower() == name), None)
         return object
@@ -75,5 +84,18 @@ class GameObjectController:
         temp_object_list = [game_object for game_object in self.game_objects if game_object.is_in_room(self._current_room()) and game_object.object_type == category_name]
         return temp_object_list 
 
-    def remove_object(self, item_id):
-        self.items = [item for item in self.items if item.id != item_id]
+    def combine_item(self, items):
+        item_ids = []
+        for item in items:
+            item_ids.append(item.id)
+        item_ids.sort()
+
+        object = next((game_object for game_object in self.game_objects if game_object.object_type == 'item' and game_object.combination == item_ids), None)
+        self.remove_object(object)
+        return object
+
+    def remove_object(self, game_object):
+        if game_object in self.game_objects:
+            self.game_objects.remove(game_object)
+        if game_object in self.current_objects:
+            self.current_objects.remove(game_object)

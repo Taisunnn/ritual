@@ -8,16 +8,7 @@
             "starting_room_intro": "Starting Quote",
             "is_ending_room": false,
             "ending_room_outro": "",
-            "item_ids": [],
-            "npc_ids": [],
-            "connected_rooms": [
-                {
-                    "room_id": 2,
-                    "room_direction": "n",
-                    "is_room_locked": true,
-                    "key_item_id": 0
-                }
-            ]
+            "npc_ids": []
         },
         {
             "id": 2,
@@ -27,22 +18,7 @@
             "starting_room_intro": "",
             "is_ending_room": false,
             "ending_room_outro": "",
-            "item_ids": [],
-            "npc_ids": [],
-            "connected_rooms": [
-                {
-                    "room_id": 1,
-                    "room_direction": "s",
-                    "is_room_locked": false,
-                    "key_item_id": 0
-                },
-                {
-                    "room_id": 3,
-                    "room_direction": "n",
-                    "is_room_locked": false,
-                    "key_item_id": 0
-                }
-            ]
+            "npc_ids": []
         },
         {
             "id": 3,
@@ -52,16 +28,7 @@
             "starting_room_intro": "",
             "is_ending_room": true,
             "ending_room_outro": "Ending Quote",
-            "item_ids": [],
-            "npc_ids": [],
-            "connected_rooms": [
-                {
-                    "room_id": 2,
-                    "room_direction": "s",
-                    "is_room_locked": false,
-                    "key_item_id": 0
-                }
-            ]
+            "npc_ids": []
         }
     ]
 }
