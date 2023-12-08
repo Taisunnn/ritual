@@ -125,8 +125,6 @@ class GameStateController:
                     print(combined_item.combine_success_description + '\n\n')
                 else:
                     print('You can\'t combine these items.' + '\n\n')
-            elif action in INTERACT_KEYWORD:
-                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
             elif action in UNLOCK_KEYWORD:
                 temp_item_list = [object for object in target_objects if object.object_type == 'item']
                 temp_npc_list = [object for object in target_objects if object.object_type == 'door']
