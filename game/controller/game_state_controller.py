@@ -85,10 +85,23 @@ class GameStateController:
                 return
 
             # Determine which action is used on the object
-            if action in NPC_KEYWORD:
-                # print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
-                if action is 'talk' and target_objects[0].object_type is 'npc':
+            if action in NPC_TALK_KEYWORD:
+                if target_objects[0].object_type == 'npc':
                     target_objects[0].speak()
+                else:
+                    print('Why are you trying to talk to that?' + '\n\n')
+            elif action in NPC_GIVE_KEYWORD:
+                temp_item_list = [object for object in target_objects if object.object_type == 'item']
+                temp_npc_list = [object for object in target_objects if object.object_type == 'npc']
+                if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
+                    print('Target Not Found' + '\n\n')
+                elif len(temp_item_list) > 1 or len(temp_npc_list) > 1 :
+                    print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+                else:
+                    item_from_npc = GameObjectController().give_npc(temp_npc_list[0], temp_item_list[0])
+                    if item_from_npc is not None:
+                        self.inventory.remove(temp_item_list[0])
+                        self.inventory.append(item_from_npc)
             elif action in PICK_UP_KEYWORD:
                 if len(target_objects) == 1:
                     if target_objects[0].object_type == 'item':
@@ -118,13 +131,13 @@ class GameStateController:
                 print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
             elif action in UNLOCK_KEYWORD:
                 temp_item_list = [object for object in target_objects if object.object_type == 'item']
-                temp_door_list = [object for object in target_objects if object.object_type == 'door']
-                if len(temp_item_list) == 0 or len(temp_door_list) == 0 :
+                temp_npc_list = [object for object in target_objects if object.object_type == 'door']
+                if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
                     print('Target Not Found' + '\n\n')
-                elif len(temp_item_list) > 1 or len(temp_door_list) > 1 :
+                elif len(temp_item_list) > 1 or len(temp_npc_list) > 1 :
                     print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
                 else:
-                    unlocked = GameObjectController().unlock_door(temp_door_list[0], temp_item_list[0].id)
+                    unlocked = GameObjectController().unlock_door(temp_npc_list[0], temp_item_list[0].id)
                     if unlocked:
                         print('You hear a click. It seems unlocked.' + '\n\n')
                     else:
