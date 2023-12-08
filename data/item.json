@@ -5,7 +5,7 @@
             "name": "Old Key",
             "description": "You found this key on the table in the parlor. You are not sure where it is used for",
             "item_location": 1,
-            "location_description": "You see an Old Looking Key on a table"
+            "location_description": "You see an Old Key on a table"
         },
         {
             "id": 2,
@@ -25,13 +25,13 @@
         {
             "id": 4,
             "name": "Doll",
-            "description": "Item description",
+            "description": "A old Doll. Not sure where to use this...",
             "is_combined_item": true,
             "combination": [
                 2,
                 3
             ],
-            "combine_success_description": "Combine Dialogue"
+            "combine_success_description": "You put together the Doll Head and Doll Body, completeing the full Doll."
         }
     ]
 }
