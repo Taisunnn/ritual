@@ -11,7 +11,8 @@ COMBINE_KEYWORD = [
 ]
 
 INTERACT_KEYWORD = [
-    'use',
+    'pull',
+    'give',
     'interact',
 ]
 
