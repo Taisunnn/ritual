@@ -3,46 +3,45 @@ Text-based adventure game for CCPS406 by Moon, Tyson, Brian, Bhavishey
 
 ## How to Start the Game
 After navigating to the project directory `.../BBMT/` run the following command
-```python main.py```
+`python main.py`
 
-## Dev Note
-### Implemented User Actions
-#### Navigating the Area
-'n', 'e', 's', 'w'
+## Implemented User Actions
+### Navigating the Area
+`n`, `e`, `s`, `w`
 
-#### Talking to NPC
-'talk with'
-'talk'
-'chat with'
-'chat'
+### Talking to NPC
+`talk with`
+`talk`
+`chat with`
+`chat`
 
-#### Give item to NPC
-'give'
-'hand over'
+### Give item to NPC
+`give`
+`hand over`
 
-#### Combine two items together
-'combine'
-'put together'
+### Combine two items together
+`combine`
+`put together`
 
-#### Unlock door using an item
-'open'
-'unlock'
+### Unlock door using an item
+`open`
+`unlock`
 
-#### Make detailed observation
-'inspect'
-'look at'
-'look'
+### Make detailed observation
+`inspect`
+`look at`
+`look`
 
-#### Picking up item
-'pickup'
-'pick up'
-'get'
-'acquire'
+### Picking up item
+`pickup`
+`pick up`
+`get`
+`acquire`
 
-#### Open inventory
-'check inventory'
-'check bag'
-'inventory'
-'bag'
-'what do i have'
+### Open inventory
+`check inventory`
+`check bag`
+`inventory`
+`bag`
+`what do i have`
 
