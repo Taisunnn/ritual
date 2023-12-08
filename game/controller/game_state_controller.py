@@ -23,8 +23,6 @@ class GameStateController:
         # ? Load starting room
         GameObjectController().load_room_id(self.current_location)
         
-        GameOutputController.terminal_print()
-
         # ? Get user input until game is over
         while(self.game_ongoing):
             user_command = input('\tWhat do you do? : ')
