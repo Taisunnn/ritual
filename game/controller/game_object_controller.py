@@ -43,6 +43,7 @@ class GameObjectController:
             # ? array that will hold all the game objects and relevant game objects
             cls._instance.game_objects = game_objects
             cls._instance.relevant_objects = []
+            cls._instance.intro_printed = False
         return cls._instance
     
     @staticmethod
@@ -54,6 +55,11 @@ class GameObjectController:
         self.relevant_objects.reverse()
         temp_object_list = [game_object for game_object in self.game_objects if game_object.is_in_room(id)]
         temp_object_list.reverse()
+
+        if self.intro_printed is False:
+            room = next((game_object for game_object in self.game_objects if game_object.object_type == 'room' and game_object.id == 1), None)
+            GameOutputController.terminal_print(room.starting_room_intro)
+            self.intro_printed = True
         for game_object in temp_object_list:
             game_object.inspect(id)
 
