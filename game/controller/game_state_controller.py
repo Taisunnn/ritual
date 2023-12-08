@@ -86,7 +86,9 @@ class GameStateController:
 
             # Determine which action is used on the object
             if action in NPC_KEYWORD:
-                print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+                # print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command + '\n\n')
+                if action is 'talk' and target_objects[0].object_type is 'npc':
+                    target_objects[0].speak()
             elif action in PICK_UP_KEYWORD:
                 if len(target_objects) == 1:
                     if target_objects[0].object_type == 'item':

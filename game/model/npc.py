@@ -13,10 +13,10 @@ class NPC(GameObject):
         return self.npc_location == id
     
     def inspect(self, room_id):
-        print(self.location_description + '.\n\n')
+        print(self.description + '.\n\n')
 
     def speak(self):
-        print(self.name + ': "' + random.choice(self.dialogue) + '"')
+        print(self.name + ': "' + random.choice(self.dialogue) + '"\n\n')
 
     @classmethod
     def from_dict(cls, data):
