@@ -29,7 +29,7 @@ class GameStateController:
             user_command = user_command.strip().lower()
 
             GameOutputController.terminal_print_single_nextline('', no_ending=True)
-            if(len(user_command) == 1):
+            if(len(user_command) == 1) and user_command in MOVE_KEYWORD:
                 for move_command in MOVE_KEYWORD:
                     if move_command in user_command:
                         self.move(move_command)
@@ -86,74 +86,77 @@ class GameStateController:
 
             # Determine which action is used on the object
             if action in NPC_TALK_KEYWORD:
-                if target_objects[0].object_type == 'npc':
-                    target_objects[0].speak()
-                else:
-                    GameOutputController.terminal_print('Why are you trying to talk to that?', no_ending=True)
+                self.talk_npc(target_objects)
             elif action in NPC_GIVE_KEYWORD:
-                temp_item_list = [object for object in target_objects if object.object_type == 'item']
-                temp_npc_list = [object for object in target_objects if object.object_type == 'npc']
-                if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
-                    GameOutputController.terminal_print('Target Not Found', no_ending=True)
-                elif len(temp_item_list) > 1 or len(temp_npc_list) > 1 :
-                    # ! FIX THIS!!!
-                    GameOutputController.terminal_print('UNIMPLEMENTED FUNCTIONALITY: action(' + action + ") command(" + command + ')', no_ending=True)
-                else:
-                    item_from_npc = GameObjectController().give_npc(temp_npc_list[0], temp_item_list[0])
-                    if item_from_npc is not None:
-                        self.inventory.remove(temp_item_list[0])
-                        self.inventory.append(item_from_npc)
+                self.give_npc(action, target_objects, command)
             elif action in PICK_UP_KEYWORD:
-                if len(target_objects) == 1:
-                    if target_objects[0].object_type == 'item':
-                        if target_objects[0] not in self.inventory:
-                            self.inventory.append(target_objects[0])
-                            GameObjectController().remove_object(target_objects[0])
-                            GameOutputController.terminal_print('You picked up the ' + target_objects[0].name + ' and added to your bag')
-                        else:
-                            GameOutputController.terminal_print('That item is already in your bag')
-                    else:
-                        GameOutputController.terminal_print('You can\'t pick up ' + '"' + command + '"')
-                else:
-                    GameOutputController.terminal_print('Enter one object at a time when picking things up')
+                self.pick_up_item(target_objects, command)
             elif action in COMBINE_KEYWORD:
-                temp_object_list = [object for object in target_objects if object.object_type == 'item']
-                combined_item = GameObjectController().combine_item(temp_object_list)
-                if combined_item is not None:
-                    for inventory_object in temp_object_list:
-                        if inventory_object in self.inventory:
-                            self.inventory.remove(inventory_object)
-                    self.inventory.append(combined_item)
-                    GameOutputController.terminal_print(combined_item.combine_success_description)
-                else:
-                    GameOutputController.terminal_print('You can\'t combine these items')
+                self.combine_item(target_objects)
             elif action in UNLOCK_KEYWORD:
-                temp_item_list = [object for object in target_objects if object.object_type == 'item']
-                temp_npc_list = [object for object in target_objects if object.object_type == 'door']
-                if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
-                    GameOutputController.terminal_print('Target Not Found', no_ending=True)
-                elif len(temp_item_list) > 1 or len(temp_npc_list) > 1 :
-                    # ! FIX THIS !!!!
-                    GameOutputController.terminal_print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command)
-                else:
-                    unlocked = GameObjectController().unlock_door(temp_npc_list[0], temp_item_list[0].id)
-                    if unlocked:
-                        GameOutputController.terminal_print('You hear a click. It seems unlocked')
-                    else:
-                        GameOutputController.terminal_print('It doesn\'t seem to do anything...', no_ending=True)
+                self.unlock(action, target_objects, command)
             elif action in LOOK_KEYWORD:
                 GameOutputController.terminal_print(target_objects[0].long_description)
 
-def give_npc(self, action, target_objects, command):
-    temp_item_list = [object for object in target_objects if object.object_type == 'item']
-    temp_npc_list = [object for object in target_objects if object.object_type == 'npc']
-    if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
-        GameOutputController.terminal_print('Target Not Found', no_ending=True)
-    elif len(temp_item_list) > 1 or len(temp_npc_list) > 1 :
-        # ! FIX THIS!!!
-        GameOutputController.terminal_print('UNIMPLEMENTED FUNCTIONALITY: action(' + action + ") command(" + command + ')', no_ending=True)
-    else:
-        item_from_npc = GameObjectController().give_npc(temp_npc_list[0], temp_item_list[0])
-        if item_from_npc is not None:
-            self.inventory.remove(temp_item_list[0])
-            self.inventory.append(item_from_npc)   
+    # -- Action functions --
+
+    def pick_up_item(self, target_objects, command):
+        if len(target_objects) == 1:
+            if target_objects[0].object_type == 'item':
+                if target_objects[0] not in self.inventory:
+                    self.inventory.append(target_objects[0])
+                    GameObjectController().remove_object(target_objects[0])
+                    GameOutputController.terminal_print('You picked up the ' + target_objects[0].name + ' and added to your bag')
+                else:
+                    GameOutputController.terminal_print('That item is already in your bag')
+            else:
+                GameOutputController.terminal_print('You can\'t pick up ' + '"' + command + '"')
+        else:
+            GameOutputController.terminal_print('Enter one object at a time when picking things up')
+
+    def combine_item(self, target_objects):
+        temp_object_list = [object for object in target_objects if object.object_type == 'item']
+        combined_item = GameObjectController().combine_item(temp_object_list)
+        if combined_item is not None:
+            for inventory_object in temp_object_list:
+                if inventory_object in self.inventory:
+                    self.inventory.remove(inventory_object)
+            self.inventory.append(combined_item)
+            GameOutputController.terminal_print(combined_item.combine_success_description)
+        else:
+            GameOutputController.terminal_print('You can\'t combine these items')
+
+    def talk_npc(self, target_objects):
+        if target_objects[0].object_type == 'npc':
+            target_objects[0].speak()
+        else:
+            GameOutputController.terminal_print('Why are you trying to talk to that?', no_ending=True)
+
+    def give_npc(self, action, target_objects, command):
+        temp_item_list = [object for object in target_objects if object.object_type == 'item']
+        temp_npc_list = [object for object in target_objects if object.object_type == 'npc']
+        if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
+            GameOutputController.terminal_print('Target Not Found', no_ending=True)
+        elif len(temp_item_list) > 1 or len(temp_npc_list) > 1 :
+            # ! FIX THIS!!!
+            GameOutputController.terminal_print('UNIMPLEMENTED FUNCTIONALITY: action(' + action + ") command(" + command + ')', no_ending=True)
+        else:
+            item_from_npc = GameObjectController().give_npc(temp_npc_list[0], temp_item_list[0])
+            if item_from_npc is not None:
+                self.inventory.remove(temp_item_list[0])
+                self.inventory.append(item_from_npc)
+
+    def unlock(self, action, target_objects, command):
+        temp_item_list = [object for object in target_objects if object.object_type == 'item']
+        temp_npc_list = [object for object in target_objects if object.object_type == 'door']
+        if len(temp_item_list) == 0 or len(temp_npc_list) == 0 :
+            GameOutputController.terminal_print('Target Not Found', no_ending=True)
+        elif len(temp_item_list) > 1 or len(temp_npc_list) > 1 :
+            # ! FIX THIS !!!!
+            GameOutputController.terminal_print('UNIMPLEMENTED FUNCTIONALITY: ' + action + " " + command)
+        else:
+            unlocked = GameObjectController().unlock_door(temp_npc_list[0], temp_item_list[0].id)
+            if unlocked:
+                GameOutputController.terminal_print('You hear a click. It seems unlocked')
+            else:
+                GameOutputController.terminal_print('It doesn\'t seem to do anything...', no_ending=True)
