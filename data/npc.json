@@ -2,25 +2,21 @@
     "npcs": [
         {
             "id": 0,
-            "name": "NPC Name",
-            "description": "NPC description",
+            "name": "ghost",
+            "description": "A tired looking Ghost is standing in the corner of the room",
+            "location_id": 3, 
             "dialogue": [
-                "NPC dialogue 1",
-                "NPC dialogue 2",
-                "NPC dialogue 3"
+                "Hello",
+                "Hi",
+                "What do you want?"
             ],
             "item_interactions": [
                 {
-                    "item_id": 1,
+                    "interact_item_id": 1,
                     "player_action": "give",
-                    "dialogue": "Item related NPC dialogue",
-                    "reaction": "remove"
-                },
-                {
-                    "item_id": 1,
-                    "player_action": "attack",
-                    "dialogue": "Item related NPC dialogue",
-                    "reaction": "attack"
+                    "dialogue": "Oh! I was looking for this! Thanks!",
+                    "reaction": "get",
+                    "give_item_id": 6
                 }
             ]
         }
