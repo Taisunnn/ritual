@@ -2,22 +2,36 @@
     "items": [
         {
             "id": 1,
-            "name": "Item Name",
-            "description": "Item description",
-            "is_combined_item": false,
-            "combination": [],
-            "combine_success_description": ""
+            "name": "Old Key",
+            "description": "You found this key on the table in the parlor. You are not sure where it is used for",
+            "item_location": 1,
+            "location_description": "You see an Old Key on a table"
         },
         {
-            "id": 5,
-            "name": "Item Name",
-            "description": "Item description",
+            "id": 2,
+            "name": "Doll Head",
+            "description": "Head of a doll. It's missing its body.",
+            "item_location": 2,
+            "location_description": "You see a Doll Head on a book shelf"
+
+        },
+        {
+            "id": 3,
+            "name": "Doll Body",
+            "description": "Body of a doll. It's missing its head.",
+            "item_location": 2,
+            "location_description": "You see a Doll Body on a table"
+        },
+        {
+            "id": 4,
+            "name": "Doll",
+            "description": "A old Doll. Not sure where to use this...",
             "is_combined_item": true,
             "combination": [
-                1,
-                2
+                2,
+                3
             ],
-            "combine_success_description": "Combine Dialogue"
+            "combine_success_description": "You put together the Doll Head and Doll Body, completeing the full Doll."
         }
     ]
 }

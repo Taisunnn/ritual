@@ -1,1 +1,0 @@
-print('Start from here!')

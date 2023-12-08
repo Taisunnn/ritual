@@ -2,42 +2,33 @@
     "rooms": [
         {
             "id": 1,
-            "name": "Room Name",
-            "description": "Room Description",
+            "name": "Room 1",
+            "description": "You find yourself in a dimly lit parlor, nestled within the eerie confines of the creepy mansion. The air feels heavy and cold, and the room exudes an unsettling stillness. The faded, ornate wallpaper peels away from the walls, revealing the passage of time in this forgotten space. Tattered, cobweb-draped curtains hang limply over tall, cracked windows, allowing only feeble moonlight to pierce the darkness.\n\nIn the center of the room, a weathered velvet couch sits, its once-rich color now a somber shade of gray. A dusty, grand piano occupies one corner, its keys untouched for decades, yet an eerie melody seems to linger in the air. A long-abandoned tea set rests on a tarnished silver tray atop an antique coffee table, a haunting reminder of past gatherings.\n\nYour attention is drawn to a heavy wooden door, ornately carved with intricate patterns, leading to a first-floor hallway to the north. The door's surface is marred with age, and it creaks ominously as if reluctant to reveal the secrets of the mansion beyond. The flickering candlelight casts elongated shadows that dance upon the floor, making you hesitate before taking the next step into the foreboding hallway.",
+            "is_starting_room": true,
+            "starting_room_intro": "Starting Quote",
+            "is_ending_room": false,
+            "ending_room_outro": "",
+            "npc_ids": []
+        },
+        {
+            "id": 2,
+            "name": "Room 2",
+            "description": "You step through the heavy wooden door, entering the first-floor hallway of the eerie mansion. The air here is just as cold and the atmosphere equally unsettling as the parlor you've left behind. Flickering sconces along the walls cast erratic shadows that seem to sway to their own ghostly rhythm.\n\nTo the north, a grand wooden staircase beckons, its steps worn with age and a faint, ghostly whisper echoing from above. It leads to the upper floor, shrouded in even deeper darkness and mystery.\n\nTurning your gaze to the east, an innocent-looking bookshelf stands against the wall, its wooden frame adorned with dusty old tomes. Yet, something about it seems subtly out of place, its presence intriguingly mysterious. A chill runs down your spine as you wonder what secrets might be concealed behind those shelves, waiting for the curious to discover.\n\nAnd to the west, another hallway veers off, its passage obscured by the gloom, impossible to see where it leads, but the faintest whisper of a draft tickles your senses, carrying with it a scent of dampness and decay.",
             "is_starting_room": false,
             "starting_room_intro": "",
             "is_ending_room": false,
             "ending_room_outro": "",
-            "item_ids": [
-                1,
-                2,
-                3
-            ],
-            "npc_ids": [
-                1,
-                2,
-                3
-            ],
-            "connected_rooms": [
-                {
-                    "room_id": 1,
-                    "room_direction": "N",
-                    "is_room_locked": false,
-                    "key_item_id": 1
-                },
-                {
-                    "room_id": 2,
-                    "room_direction": "W",
-                    "is_room_locked": true,
-                    "key_item_id": 1
-                },
-                {
-                    "room_id": 3,
-                    "room_direction": "E",
-                    "is_room_locked": true,
-                    "key_item_id": 2
-                }
-            ]
+            "npc_ids": []
+        },
+        {
+            "id": 3,
+            "name": "Room 3",
+            "description": "The third room opens up into an enigmatic gallery filled with peculiar artwork. Paintings of surreal landscapes and bizarre creatures cover the walls, each one more mystifying than the last. The air is filled with an eerie silence, broken only by the faint sound of your footsteps on the creaky wooden floor. In the center of the room stands a pedestal holding a peculiar statue of a figure with an inscrutable expression. Moonlight filters in through a cracked skylight, casting eerie shadows on the artwork. The only visible exit is a wooden door leading to the north, beckoning you to continue your investigation.",
+            "is_starting_room": false,
+            "starting_room_intro": "",
+            "is_ending_room": true,
+            "ending_room_outro": "Ending Quote",
+            "npc_ids": []
         }
     ]
 }
