@@ -97,6 +97,16 @@ class GameStateController:
                 self.unlock(action, target_objects, command)
             elif action in LOOK_KEYWORD:
                 GameOutputController.terminal_print(target_objects[0].long_description)
+            elif action in SPECIAL_KEYWORD:
+                if all(game_object.object_type == 'item' for game_object in target_objects):
+                    self.combine_item(target_objects)
+                elif all(game_object.object_type == 'room' for game_object in target_objects):
+                    GameOutputController.terminal_print('Not a valid command')
+                else:
+                    if any(game_object.object_type == 'npc' for game_object in target_objects):
+                        self.give_npc(action, target_objects, command)
+                    elif any(game_object.object_type == 'door' for game_object in target_objects):
+                        self.unlock(action, target_objects, command)
 
     # -- Action functions --
 
